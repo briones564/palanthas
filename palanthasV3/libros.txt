@@ -1,0 +1,66 @@
+El retorno de los dragones
+Margaret Weis y Tracy Hickman
+1984
+Literatura fantástica
+true
+-----------------------------
+La tumba de Huma
+Margaret Weis y Tracy Hickman
+1985
+Literatura fantástica
+true
+-----------------------------
+La Reina de la Oscuridad
+Margaret Weis y Tracy Hickman
+1985
+Literatura fantástica
+true
+-----------------------------
+Rojo y negro
+Stendhal
+1830
+Novela
+true
+-----------------------------
+El tango de la guardia vieja
+Arturo Perez-Reverte
+2012
+Novela
+true
+-----------------------------
+Don Quijote de la Mancha
+Miguel de Cervantes Saavedra
+1605
+Novela de aventuras
+false
+-----------------------------
+Piensa en Java
+Bruce Eckel
+2004
+Manual de referencia
+true
+-----------------------------
+Desarrollo de aplicaciones Android seguras
+Miguel Angel Moreno Alvarez
+2017
+Informática
+false
+-----------------------------
+El nombre del viento
+Patrick Rothfuss
+2007
+Literatura fantástica
+true
+-----------------------------
+Manual completo de costura
+Jane Foster
+2005
+Costura
+false
+-----------------------------
+El niño 44
+Tom Rob Smith
+2008
+Intriga
+true
+-----------------------------
