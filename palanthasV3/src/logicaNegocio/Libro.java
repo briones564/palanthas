@@ -16,9 +16,9 @@ public class Libro {
     String autor;
     String añoPublicacion;
     String genero;
-    String prestable;
+    int prestable;
     
-    public Libro (String titulo, String autor, String añoPublicacion, String genero, String prestable) {
+    public Libro (String titulo, String autor, String añoPublicacion, String genero, int prestable) {
     
         this.titulo = titulo;
         this.autor = autor;
@@ -69,11 +69,11 @@ public class Libro {
         this.genero = genero;
     }
 
-    public String getPrestable() {
+    public int getPrestable(int prestable) {
         return prestable;
     }
 
-    public void setPrestable(String prestable) {
+    public void setPrestable(int prestable) {
         this.prestable = prestable;
     }
 

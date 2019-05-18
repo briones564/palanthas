@@ -36,9 +36,9 @@ public class LogicaLibros {
         return libros;
     }
     
-    public boolean altaLibro (String prestable, String titulo, String autor, String añoPublicacion, String genero) {
+    public boolean altaLibro (String titulo, String autor, String añoPublicacion, String genero, char prestable) {
 
-    if (accesoDatosLibros.altaLibro(prestable, titulo, autor, añoPublicacion, genero)) return true;
+    if (accesoDatosLibros.altaLibro(titulo, autor, añoPublicacion, genero, prestable)) return true;
     else return false;
     }
 }

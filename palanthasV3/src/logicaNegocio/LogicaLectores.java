@@ -32,7 +32,10 @@ public class LogicaLectores {
     
     public boolean altaLector (String nombre, String apellidos, String nif, String telefono, String email) {
     
-        if (accesoDatos.altaLector(nombre, apellidos, nif, telefono, email)) return true;
+        if (accesoDatos.altaLector(nombre, apellidos, nif, telefono, email)) {
+            
+            return true;
+        }
         else return false;
     }
     

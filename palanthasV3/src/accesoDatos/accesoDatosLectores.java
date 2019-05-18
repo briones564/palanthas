@@ -63,23 +63,12 @@ public class accesoDatosLectores {
                 if (string == null) break;//En este momento el lector ha de salir del bucle, pues ha encontrado "null".
                 
                 randomAccessFile.writeChars(Utilidades.ajustarString(string, 16));
-
-                string = bufferedReader.readLine();  
-                randomAccessFile.writeChars(Utilidades.ajustarString(string, 20));
-
+                randomAccessFile.writeChars(Utilidades.ajustarString(bufferedReader.readLine(), 20));
                 randomAccessFile.writeInt(id++);
-                
-                string = bufferedReader.readLine();  
-                randomAccessFile.writeChars(Utilidades.ajustarString(string, 9));
-
-                string = bufferedReader.readLine();  
-                randomAccessFile.writeChars(Utilidades.ajustarString(string, 9));
-
-                string = bufferedReader.readLine();  
-                randomAccessFile.writeChars(Utilidades.ajustarString(string, 16));
-                
-                string = bufferedReader.readLine();
-                randomAccessFile.writeChars(Utilidades.ajustarString(string, 0));  
+                randomAccessFile.writeChars(Utilidades.ajustarString(bufferedReader.readLine(), 9));
+                randomAccessFile.writeChars(Utilidades.ajustarString(bufferedReader.readLine(), 9)); 
+                randomAccessFile.writeChars(Utilidades.ajustarString(bufferedReader.readLine(), 16));
+                randomAccessFile.writeChars(Utilidades.ajustarString(bufferedReader.readLine(), 0));  
             } 
             
         } catch (FileNotFoundException fileEx) {
@@ -147,7 +136,6 @@ public class accesoDatosLectores {
         Lector lector = new Lector();
         
         int posicion = 0;
-        int alta = 0;
         
         try {
 
