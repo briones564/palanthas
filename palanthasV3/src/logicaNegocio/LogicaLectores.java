@@ -54,7 +54,9 @@ public class LogicaLectores {
     
     public boolean modificarLector (String nombreOriginal, String nombreNuevo, String apellidos, String NIF, String telefono, String email) {
     
-        if (accesoDatos.modificarLector(nombreOriginal, nombreNuevo, apellidos, NIF, telefono,email)) return true;
+        if (accesoDatos.modificarLector(nombreOriginal, nombreNuevo, apellidos, NIF, telefono,email)) {
+            return true;
+        }
         else return false;
     }
     
@@ -62,7 +64,7 @@ public class LogicaLectores {
         
         for (int i = 0; i < accesoDatos.getLectores().size(); i++){
              
-            if (accesoDatos.getLectores().get(i).getNIF().equals(nif)) {
+            if (accesoDatos.getLectores().get(i).getNIF().equalsIgnoreCase(nif)) {
             
                 return accesoDatos.getLectores().get(i);
             }

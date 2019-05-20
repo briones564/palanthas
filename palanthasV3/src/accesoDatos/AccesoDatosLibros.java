@@ -60,17 +60,16 @@ public class AccesoDatosLibros {
             //Extraer cada linea del archivo de texto para escribirla en el fichero de acceso aleatorio ajustando su tamaño.
             while (string != null) { 
                 
-                randomAccessFile.writeInt(id++);
+                
                 
                 string = bufferedReader.readLine();  
                 if (string == null) break;//En este momento el lector ha de salir del bucle, pues ha encontrado "null".
-                
+                randomAccessFile.writeInt(id++);
                 randomAccessFile.writeChars(Utilidades.ajustarString(string, 26)); 
                 randomAccessFile.writeChars(Utilidades.ajustarString(bufferedReader.readLine(), 30)); 
                 randomAccessFile.writeChars(Utilidades.ajustarString(bufferedReader.readLine(), 8)); 
                 randomAccessFile.writeChars(Utilidades.ajustarString(bufferedReader.readLine(), 25));
-                randomAccessFile.writeChar(bufferedReader.read());
-                string = bufferedReader.readLine();
+                randomAccessFile.writeBoolean(Boolean.valueOf(Utilidades.ajustarString(bufferedReader.readLine(), 4)));
                 string = bufferedReader.readLine();
             } 
             
@@ -101,11 +100,11 @@ public class AccesoDatosLibros {
                 libro = new Libro();
                 libro.setId(randomAccessFile.readInt());
                 //randomAccessFile.seek(randomAccessFile.getFilePointer());             
-                libro.setTitulo((leerString(randomAccessFile, 26)).trim());
-                libro.setAutor((leerString(randomAccessFile, 30)).trim());
-                libro.setAñoPublicacion((leerString(randomAccessFile, 8)).trim());
-                libro.setGenero((leerString(randomAccessFile, 25)).trim());
-                libro.setPrestable(randomAccessFile.readChar());
+                libro.setTitulo((Utilidades.leerString(randomAccessFile, 26)).trim());
+                libro.setAutor((Utilidades.leerString(randomAccessFile, 30)).trim());
+                libro.setAñoPublicacion((Utilidades.leerString(randomAccessFile, 8)).trim());
+                libro.setGenero((Utilidades.leerString(randomAccessFile, 25)).trim());
+                libro.setPrestable(randomAccessFile.readBoolean());
                 libros.add(libro);
                // System.out.println(lector.toString());
             }     
@@ -119,36 +118,23 @@ public class AccesoDatosLibros {
         }
         return libros;
     }
-    
-    private static String leerString (RandomAccessFile randomAccessFile, int longitud) throws IOException {
-    
-        char[] chars = new char[longitud];
-        
-        for (int i = 0; i < longitud; i++) {
-        
-            chars[i] = randomAccessFile.readChar();
-        }     
-        return new String(chars);
-    }
-    
-    public static boolean altaLibro (String titulo, String autor, String añoPublicacion, String genero, char prestable) {
+     
+    public static boolean altaLibro (String titulo, String autor, String añoPublicacion, String genero, boolean prestable) {
     
         //Buscar lector con atributo valido = 0 para escribir en su posición. Si no lo hay, escribirá al final del fichero.(Metodo?)
         //Crear objeto Lector para asignarle los datos ajustados extraídos del fichero de acceso aleatorio.
+
         Libro libro = new Libro();
-        
-        int posicion = 0;
-        int alta = 0;
         
         try {
 
-            randomAccessFile.seek(randomAccessFile.length());            
+            randomAccessFile.seek(randomAccessFile.length());   
             randomAccessFile.writeInt(id++);
             randomAccessFile.writeChars(Utilidades.ajustarString(titulo, 26));
             randomAccessFile.writeChars(Utilidades.ajustarString(autor, 30));
             randomAccessFile.writeChars(Utilidades.ajustarString(añoPublicacion, 8));
-            randomAccessFile.writeChars(Utilidades.ajustarString(genero, 25));
-            randomAccessFile.writeChar(prestable);          
+            randomAccessFile.writeChars(Utilidades.ajustarString(genero, 25));   
+            randomAccessFile.writeBoolean(prestable);  
 
         } catch (EOFException endEx) {
         
@@ -162,14 +148,12 @@ public class AccesoDatosLibros {
     } 
     
    
-    /*public static boolean modificarLector(String nombreOriginal, String nombreNuevo, String apellidos, String NIF, String telefono, String email) {
+    public static boolean modificarLibro(String tituloOriginal, String tituloNuevo, String autor, String añoPublicacion, String genero, String prestable) {
     
         //Crear objeto Lector para asignarle los datos ajustados extraídos del fichero de acceso aleatorio.
         Libro libro = new Libro();
         
         int posicion = 0;
-        int modificado = 0;
-        String string;
         
         try {
 
@@ -178,33 +162,24 @@ public class AccesoDatosLibros {
             //Bucle que crea lectores para visualizarlos (mientras haya datos en el fichero).
             for (;;) {
                 
-                lector.setValido((leerString(randomAccessFile, 1)).trim());
-                lector.setNombre((leerString(randomAccessFile, 16).trim()));
+                libro.setId(randomAccessFile.readInt());
+                libro.setTitulo((Utilidades.leerString(randomAccessFile, 26)).trim());
                 
-                if (nombreOriginal.equals(lector.getNombre())){    
-                   
-                    lector.setApellidos((leerString(randomAccessFile, 20).trim()));
-                    lector.setID(randomAccessFile.readInt()); 
-                    modificado++;
-                }
-                if (modificado == 1) {break;}
+                if (tituloOriginal.equalsIgnoreCase(libro.getTitulo())){                      
                 
-                lector.setApellidos((leerString(randomAccessFile, 20).trim()));
-                lector.setID(randomAccessFile.readInt()); 
-                lector.setNIF((leerString(randomAccessFile, 9)).trim());
-                lector.setTelefono((leerString(randomAccessFile, 9)).trim());
-                lector.setEmail((leerString(randomAccessFile, 16)).trim());                       
+                    randomAccessFile.seek((randomAccessFile.getFilePointer())-52);
+                    randomAccessFile.writeChars(Utilidades.ajustarString(tituloNuevo, 26));
+                    randomAccessFile.writeChars(Utilidades.ajustarString(autor, 30));
+                    randomAccessFile.writeChars(Utilidades.ajustarString(añoPublicacion, 8));
+                    randomAccessFile.writeChars(Utilidades.ajustarString(genero, 25));    
+                    randomAccessFile.writeChars(Utilidades.ajustarString(prestable, 4));                
+                    break;
+                }               
+                libro.setAutor((Utilidades.leerString(randomAccessFile, 30)).trim());
+                libro.setAñoPublicacion((Utilidades.leerString(randomAccessFile, 8)).trim());
+                libro.setGenero((Utilidades.leerString(randomAccessFile, 25)).trim());
+                libro.setPrestable(Boolean.valueOf((Utilidades.leerString(randomAccessFile, 4)).trim()));                      
             } 
-            if (modificado == 1){
-                
-                randomAccessFile.seek((randomAccessFile.getFilePointer())-76);
-                randomAccessFile.writeChars(Utilidades.ajustarString(nombreNuevo, 16));
-                randomAccessFile.writeChars(Utilidades.ajustarString(apellidos, 20));
-                randomAccessFile.writeInt(lector.getID());
-                randomAccessFile.writeChars(Utilidades.ajustarString(NIF, 9));  
-                randomAccessFile.writeChars(Utilidades.ajustarString(telefono, 9));
-                randomAccessFile.writeChars(Utilidades.ajustarString(email, 16));  
-            }
             return true;
             
         } catch (EOFException endEx) {
@@ -218,15 +193,13 @@ public class AccesoDatosLibros {
         return false;
     }
 
-    public static void buscarNIF (String NIF) {
+    public static void buscarTitulo (String titulo) {
     
         //Crear objeto Lector para asignarle los datos ajustados extraídos del fichero de acceso aleatorio.
-        Lector lector = new Lector();
+        Libro libro = new Libro();
         
         int posicion = 0;
-        int encontrado = 0;
-        String string;
-        
+ 
         try {
 
             randomAccessFile.seek(posicion);
@@ -234,18 +207,16 @@ public class AccesoDatosLibros {
             //Bucle que crea lectores para visualizarlos (mientras haya datos en el fichero).
             for (;;) {
                 
-                lector.setValido((leerString(randomAccessFile, 1)).trim());
-                lector.setNombre((leerString(randomAccessFile, 16).trim()));                     
-                lector.setApellidos((leerString(randomAccessFile, 20).trim()));
-                lector.setID(randomAccessFile.readInt()); 
-                lector.setNIF((leerString(randomAccessFile, 9)).trim());
-                lector.setTelefono((leerString(randomAccessFile, 9)).trim());
-                lector.setEmail((leerString(randomAccessFile, 16)).trim()); 
+                libro.setId(randomAccessFile.readInt());          
+                libro.setTitulo((Utilidades.leerString(randomAccessFile, 26)).trim());
+                libro.setAutor((Utilidades.leerString(randomAccessFile, 30)).trim());
+                libro.setAñoPublicacion((Utilidades.leerString(randomAccessFile, 8)).trim());
+                libro.setGenero((Utilidades.leerString(randomAccessFile, 25)).trim());
+                libro.setPrestable(Boolean.valueOf((Utilidades.leerString(randomAccessFile, 4)).trim()));
                 
-                if (NIF.equals(lector.getNIF())){    
+                if (titulo.equalsIgnoreCase(libro.getTitulo())){    
                    
-                    encontrado++;
-                    System.out.println(lector.toString());
+                    System.out.println(libro.toString());
                     break;
                 }                               
             }            
@@ -262,31 +233,28 @@ public class AccesoDatosLibros {
     public static void buscarID (int ID) {
 
         //Crear objeto Lector para asignarle los datos ajustados extraídos del fichero de acceso aleatorio.
-        Lector lector = new Lector();
-
+        Libro libro = new Libro();
+        
         int posicion = 0;
-        int encontrado = 0;
         String string;
-
+      
         try {
 
             randomAccessFile.seek(posicion);
-
+            
             //Bucle que crea lectores para visualizarlos (mientras haya datos en el fichero).
             for (;;) {
-
-                lector.setValido((leerString(randomAccessFile, 1)).trim());
-                lector.setNombre((leerString(randomAccessFile, 16).trim()));                     
-                lector.setApellidos((leerString(randomAccessFile, 20).trim()));
-                lector.setID(randomAccessFile.readInt()); 
-                lector.setNIF((leerString(randomAccessFile, 9)).trim());
-                lector.setTelefono((leerString(randomAccessFile, 9)).trim());
-                lector.setEmail((leerString(randomAccessFile, 16)).trim()); 
-
-                if (ID == lector.getID()){    
-
-                    encontrado++;
-                    System.out.println(lector.toString());
+                
+                libro.setId(randomAccessFile.readInt());          
+                libro.setTitulo((Utilidades.leerString(randomAccessFile, 26)).trim());
+                libro.setAutor((Utilidades.leerString(randomAccessFile, 30)).trim());
+                libro.setAñoPublicacion((Utilidades.leerString(randomAccessFile, 8)).trim());
+                libro.setGenero((Utilidades.leerString(randomAccessFile, 25)).trim());
+                libro.setPrestable(Boolean.valueOf((Utilidades.leerString(randomAccessFile, 4)).trim()));
+                
+                if (ID == (libro.getId())){    
+                   
+                    System.out.println(libro.toString());
                     break;
                 }                               
             }            
@@ -298,9 +266,9 @@ public class AccesoDatosLibros {
 
             System.out.println(ioEx.getMessage());
         }
-    }*/
+    }
     
-     public static void borrarFichero(){
+    public static void borrarFichero(){
         File file = new File(fileName); 
         
         if (file.exists()) {

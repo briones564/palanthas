@@ -269,8 +269,6 @@ public class accesoDatosLectores {
         Lector lector = new Lector();
         
         int posicion = 0;
-        int modificado = 0;
-        String string;
         
         try {
 
@@ -282,13 +280,17 @@ public class accesoDatosLectores {
                 lector.setValido((leerString(randomAccessFile, 1)).trim());
                 lector.setNombre((leerString(randomAccessFile, 16).trim()));
                 
-                if (nombreOriginal.equals(lector.getNombre())){    
+                if (nombreOriginal.equalsIgnoreCase(lector.getNombre())){    
                    
-                    lector.setApellidos((leerString(randomAccessFile, 20).trim()));
-                    lector.setID(randomAccessFile.readInt()); 
-                    modificado++;
+                    randomAccessFile.seek((randomAccessFile.getFilePointer())-32);
+                    randomAccessFile.writeChars(Utilidades.ajustarString(nombreNuevo, 16));
+                    randomAccessFile.writeChars(Utilidades.ajustarString(apellidos, 20));
+                    randomAccessFile.writeInt(lector.getID());
+                    randomAccessFile.writeChars(Utilidades.ajustarString(NIF, 9));  
+                    randomAccessFile.writeChars(Utilidades.ajustarString(telefono, 9));
+                    randomAccessFile.writeChars(Utilidades.ajustarString(email, 16)); 
+                    break;
                 }
-                if (modificado == 1) {break;}
                 
                 lector.setApellidos((leerString(randomAccessFile, 20).trim()));
                 lector.setID(randomAccessFile.readInt()); 
@@ -296,16 +298,6 @@ public class accesoDatosLectores {
                 lector.setTelefono((leerString(randomAccessFile, 9)).trim());
                 lector.setEmail((leerString(randomAccessFile, 16)).trim());                       
             } 
-            if (modificado == 1){
-                
-                randomAccessFile.seek((randomAccessFile.getFilePointer())-76);
-                randomAccessFile.writeChars(Utilidades.ajustarString(nombreNuevo, 16));
-                randomAccessFile.writeChars(Utilidades.ajustarString(apellidos, 20));
-                randomAccessFile.writeInt(lector.getID());
-                randomAccessFile.writeChars(Utilidades.ajustarString(NIF, 9));  
-                randomAccessFile.writeChars(Utilidades.ajustarString(telefono, 9));
-                randomAccessFile.writeChars(Utilidades.ajustarString(email, 16));  
-            }
             return true;
             
         } catch (EOFException endEx) {
@@ -343,7 +335,7 @@ public class accesoDatosLectores {
                 lector.setTelefono((leerString(randomAccessFile, 9)).trim());
                 lector.setEmail((leerString(randomAccessFile, 16)).trim()); 
                 
-                if (NIF.equals(lector.getNIF())){    
+                if (NIF.equalsIgnoreCase(lector.getNIF())){    
                    
                     encontrado++;
                     System.out.println(lector.toString());

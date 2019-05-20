@@ -22,16 +22,21 @@ public class Interfaz {
         System.out.print(logicaLectores.visualizarLectores());
         if(logicaLectores.bajaLector(4)) System.out.println("BAJA");
         if(logicaLectores.altaLector("Hodor","Hodor","Hodor","Hodor","Hodor")) System.out.println("ALTA");
+        if(logicaLectores.altaLector("Hodor2","Hodor2","Hodor","Hodor","Hodor")) System.out.println("ALTA");
+        if(logicaLectores.altaLector("Hodor3","Hodor3","Hodor","Hodor","Hodor")) System.out.println("ALTA");
         if(logicaLectores.modificarLector("Pau", "Karl", "Karl","Karl","Karl","Karl")) System.out.println("MODIFICADO");
         System.out.print(logicaLectores.visualizarLectores());
-        System.out.println("NIF encontrado: " + logicaLectores.buscarNIF("Hodor3").toString());
+        System.out.println("NIF encontrado: " + logicaLectores.buscarNIF("Hodor").toString());
         System.out.println("ID encontrado: " + logicaLectores.buscarID(7).toString());*/
         
         logicaLibros.reset();
         System.out.print(logicaLibros.visualizarLibros());
-        if(logicaLibros.altaLibro("Hodor","Hodor","Hodor","Hodor",'o')) System.out.println("ALTA");
-        if(logicaLibros.altaLibro("Hodor2","Hodor2","Hodor2","Hodor2",'p')) System.out.println("ALTA");
-        if(logicaLibros.altaLibro("Hodor2","Hodor2","Hodor2","Hodor2",'p')) System.out.println("ALTA");
+        if(logicaLibros.altaLibro("Hodor","Hodor","Hodor","Hodorrrrrrrrrr",true)) System.out.println("ALTA");
+        if(logicaLibros.altaLibro("Hodor2","Hodor2","Hodor2","Hodor2",true)) System.out.println("ALTA");
+        if(logicaLibros.altaLibro("Hodor3","Hodor3","Hodor3","Hodor3",true)) System.out.println("ALTA");
+        if(logicaLibros.modificarLibro("Rojo y negro", "Karl", "Karl","Karl","Karl","Karl")) System.out.println("MODIFICADO");
         System.out.print(logicaLibros.visualizarLibros());
+        System.out.println("Titulo encontrado: " + logicaLibros.buscarTitulo("El niño 44").toString());      
+        System.out.println("ID encontrado: " + logicaLibros.buscarID(14).toString());
     }
 }
