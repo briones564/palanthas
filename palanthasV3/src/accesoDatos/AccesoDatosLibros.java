@@ -148,7 +148,7 @@ public class AccesoDatosLibros {
     } 
     
    
-    public static boolean modificarLibro(String tituloOriginal, String tituloNuevo, String autor, String añoPublicacion, String genero, String prestable) {
+    public static boolean modificarLibro(String tituloOriginal, String tituloNuevo, String autor, String añoPublicacion, String genero, boolean prestable) {
     
         //Crear objeto Lector para asignarle los datos ajustados extraídos del fichero de acceso aleatorio.
         Libro libro = new Libro();
@@ -172,13 +172,13 @@ public class AccesoDatosLibros {
                     randomAccessFile.writeChars(Utilidades.ajustarString(autor, 30));
                     randomAccessFile.writeChars(Utilidades.ajustarString(añoPublicacion, 8));
                     randomAccessFile.writeChars(Utilidades.ajustarString(genero, 25));    
-                    randomAccessFile.writeChars(Utilidades.ajustarString(prestable, 4));                
+                    randomAccessFile.writeBoolean(prestable);                
                     break;
                 }               
                 libro.setAutor((Utilidades.leerString(randomAccessFile, 30)).trim());
                 libro.setAñoPublicacion((Utilidades.leerString(randomAccessFile, 8)).trim());
                 libro.setGenero((Utilidades.leerString(randomAccessFile, 25)).trim());
-                libro.setPrestable(Boolean.valueOf((Utilidades.leerString(randomAccessFile, 4)).trim()));                      
+                libro.setPrestable(randomAccessFile.readBoolean());                   
             } 
             return true;
             

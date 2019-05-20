@@ -45,7 +45,7 @@ public class LogicaLibros {
         else return false;
     }
     
-    public boolean modificarLibro (String tituloOriginal, String tituloNuevo, String autor, String añoPublicacion, String genero, String prestable) {
+    public boolean modificarLibro (String tituloOriginal, String tituloNuevo, String autor, String añoPublicacion, String genero, boolean prestable) {
     
         if (accesoDatosLibros.modificarLibro(tituloOriginal, tituloNuevo, autor, añoPublicacion, genero, prestable)){
             

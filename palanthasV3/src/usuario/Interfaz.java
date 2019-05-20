@@ -34,7 +34,7 @@ public class Interfaz {
         if(logicaLibros.altaLibro("Hodor","Hodor","Hodor","Hodorrrrrrrrrr",true)) System.out.println("ALTA");
         if(logicaLibros.altaLibro("Hodor2","Hodor2","Hodor2","Hodor2",true)) System.out.println("ALTA");
         if(logicaLibros.altaLibro("Hodor3","Hodor3","Hodor3","Hodor3",true)) System.out.println("ALTA");
-        if(logicaLibros.modificarLibro("Rojo y negro", "Karl", "Karl","Karl","Karl","Karl")) System.out.println("MODIFICADO");
+        if(logicaLibros.modificarLibro("Rojo y negro", "Karl", "Karl","Karl","Karl",true)) System.out.println("MODIFICADO");
         System.out.print(logicaLibros.visualizarLibros());
         System.out.println("Titulo encontrado: " + logicaLibros.buscarTitulo("El niño 44").toString());      
         System.out.println("ID encontrado: " + logicaLibros.buscarID(14).toString());
