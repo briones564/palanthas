@@ -352,7 +352,7 @@ public class accesoDatosLectores {
         }
     }
     
-    public static void buscarID (int ID) {
+    public static Lector buscarID (int ID) {
 
         //Crear objeto Lector para asignarle los datos ajustados extraídos del fichero de acceso aleatorio.
         Lector lector = new Lector();
@@ -391,6 +391,7 @@ public class accesoDatosLectores {
 
             System.out.println(ioEx.getMessage());
         }
+        return lector;
     }
     
     public static void borrarFichero(){

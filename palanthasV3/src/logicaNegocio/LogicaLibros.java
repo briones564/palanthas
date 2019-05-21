@@ -78,4 +78,35 @@ public class LogicaLibros {
         return null;
     }
     
+    public boolean prestar(int idLector, int idLibro){
+    
+        if(accesoDatosLibros.prestar(idLector, idLibro)){
+            System.out.println("PRESTADO");
+            return true;
+        }
+        
+        else{ 
+            System.out.println("NO PRESTADO");
+            return false;}
+    }
+    
+    public String verPrestamos(){
+        
+        String prestamos = "";
+
+        Libro libro = new Libro();
+        Lector lector = new Lector();
+
+
+
+        for (int i = 0; i < accesoDatosLibros.getLibros().size(); i++){
+             
+            if (accesoDatosLibros.getLibros().get(i).getLector()!= 0) {
+            
+                prestamos += accesoDatosLibros.getLibros().get(i).toString() + "\n";
+            }
+        }
+        return prestamos;
+    }
+
 }

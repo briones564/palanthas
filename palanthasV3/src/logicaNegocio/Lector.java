@@ -18,6 +18,8 @@ public class Lector {
     String NIF;
     String telefono;
     String email;
+    /*int idLibroPrestado1;
+    int idLibroPrestado2;*/
        
     /**
      *
@@ -34,6 +36,8 @@ public class Lector {
         this.NIF = NIF;
         this.telefono = telefono;
         this.email = email;
+        /*this.idLibroPrestado1 = 0;
+        this.idLibroPrestado2 = 0;*/
     }
     
     /**
@@ -153,8 +157,29 @@ public class Lector {
         this.ID = ID;
     }
     
+   /*public void setLibroPrestado1(int idLibro){
+        this.idLibroPrestado1 = idLibro;
+    }
+    
+    public int getLibroPrestado1(){
+        return idLibroPrestado1;
+    }
+    
+    public void setLibroPrestado2(int idLibro){
+        this.idLibroPrestado2 = idLibro;
+    }
+    
+    public int getLibroPrestado2(){
+        return idLibroPrestado2;*/
+
     @Override
     public String toString() {
-        return "Lector{" + "valido=" + valido + ", nombre=" + nombre + ", apellidos=" + apellidos + " ,ID=" + ID + ", NIF=" + NIF + ", telefono=" + telefono + ", email=" + email + '}';
+        return "Lector{" + "valido=" + valido + ", ID=" + ID + ", nombre=" + nombre + ", apellidos=" + apellidos + ", NIF=" + NIF + ", telefono=" + telefono + ", email=" + email + '}';
     }
+    
+
+    
+    
+    
+
 }

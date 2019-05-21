@@ -17,6 +17,7 @@ public class Libro {
     String añoPublicacion;
     String genero;
     boolean prestable;
+    int idLector;
     
     public Libro (String titulo, String autor, String añoPublicacion, String genero, boolean prestable) {
     
@@ -25,6 +26,7 @@ public class Libro {
         this.añoPublicacion = añoPublicacion;
         this.genero = genero;
         this.prestable = prestable;
+        this.idLector = 0;
     }
     
     public Libro () {}
@@ -77,8 +79,16 @@ public class Libro {
         this.prestable = prestable;
     }
 
+    public void setLector(int idLector){
+        this.idLector = idLector;
+    }
+    
+    public int getLector(){
+        return idLector;
+    }
+
     @Override
     public String toString() {
-        return "libro{" + "id=" + id + ", titulo=" + titulo + ", autor=" + autor + ", a\u00f1oPublicacion=" + añoPublicacion + ", genero=" + genero + ", prestable=" + prestable + '}';
+        return "Libro{" + "id=" + id + ", titulo=" + titulo + ", autor=" + autor + ", a\u00f1oPublicacion=" + añoPublicacion + ", genero=" + genero + ", prestable=" + prestable + ", idLector=" + idLector + '}';
     }
 }

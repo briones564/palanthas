@@ -70,6 +70,7 @@ public class AccesoDatosLibros {
                 randomAccessFile.writeChars(Utilidades.ajustarString(bufferedReader.readLine(), 8)); 
                 randomAccessFile.writeChars(Utilidades.ajustarString(bufferedReader.readLine(), 25));
                 randomAccessFile.writeBoolean(Boolean.valueOf(Utilidades.ajustarString(bufferedReader.readLine(), 4)));
+                randomAccessFile.writeInt(0);
                 string = bufferedReader.readLine();
             } 
             
@@ -105,6 +106,7 @@ public class AccesoDatosLibros {
                 libro.setAñoPublicacion((Utilidades.leerString(randomAccessFile, 8)).trim());
                 libro.setGenero((Utilidades.leerString(randomAccessFile, 25)).trim());
                 libro.setPrestable(randomAccessFile.readBoolean());
+                libro.setLector(randomAccessFile.readInt());
                 libros.add(libro);
                // System.out.println(lector.toString());
             }     
@@ -135,6 +137,7 @@ public class AccesoDatosLibros {
             randomAccessFile.writeChars(Utilidades.ajustarString(añoPublicacion, 8));
             randomAccessFile.writeChars(Utilidades.ajustarString(genero, 25));   
             randomAccessFile.writeBoolean(prestable);  
+            randomAccessFile.writeInt(0);
 
         } catch (EOFException endEx) {
         
@@ -145,8 +148,7 @@ public class AccesoDatosLibros {
             System.out.println(ioEx.getMessage());
         }
         return true;
-    } 
-    
+    }  
    
     public static boolean modificarLibro(String tituloOriginal, String tituloNuevo, String autor, String añoPublicacion, String genero, boolean prestable) {
     
@@ -172,13 +174,15 @@ public class AccesoDatosLibros {
                     randomAccessFile.writeChars(Utilidades.ajustarString(autor, 30));
                     randomAccessFile.writeChars(Utilidades.ajustarString(añoPublicacion, 8));
                     randomAccessFile.writeChars(Utilidades.ajustarString(genero, 25));    
-                    randomAccessFile.writeBoolean(prestable);                
+                    randomAccessFile.writeBoolean(prestable); 
+                    randomAccessFile.writeInt(libro.getLector());
                     break;
                 }               
                 libro.setAutor((Utilidades.leerString(randomAccessFile, 30)).trim());
                 libro.setAñoPublicacion((Utilidades.leerString(randomAccessFile, 8)).trim());
                 libro.setGenero((Utilidades.leerString(randomAccessFile, 25)).trim());
-                libro.setPrestable(randomAccessFile.readBoolean());                   
+                libro.setPrestable(randomAccessFile.readBoolean());      
+                libro.setLector(randomAccessFile.readInt());
             } 
             return true;
             
@@ -213,6 +217,7 @@ public class AccesoDatosLibros {
                 libro.setAñoPublicacion((Utilidades.leerString(randomAccessFile, 8)).trim());
                 libro.setGenero((Utilidades.leerString(randomAccessFile, 25)).trim());
                 libro.setPrestable(Boolean.valueOf((Utilidades.leerString(randomAccessFile, 4)).trim()));
+                libro.setLector(randomAccessFile.readInt());
                 
                 if (titulo.equalsIgnoreCase(libro.getTitulo())){    
                    
@@ -250,7 +255,8 @@ public class AccesoDatosLibros {
                 libro.setAutor((Utilidades.leerString(randomAccessFile, 30)).trim());
                 libro.setAñoPublicacion((Utilidades.leerString(randomAccessFile, 8)).trim());
                 libro.setGenero((Utilidades.leerString(randomAccessFile, 25)).trim());
-                libro.setPrestable(Boolean.valueOf((Utilidades.leerString(randomAccessFile, 4)).trim()));
+                libro.setPrestable(randomAccessFile.readBoolean());
+                libro.setLector(randomAccessFile.readInt());
                 
                 if (ID == (libro.getId())){    
                    
@@ -266,6 +272,52 @@ public class AccesoDatosLibros {
 
             System.out.println(ioEx.getMessage());
         }
+    }
+    
+    public static boolean prestar(int idLector, int idLibro){
+    
+        Libro libro;
+        
+        int posicion = 0;
+        
+        try {
+
+            randomAccessFile.seek(posicion);
+            
+            for (;;) {
+                
+                libro = new Libro();
+                libro.setId(randomAccessFile.readInt());          
+                libro.setTitulo((Utilidades.leerString(randomAccessFile, 26)).trim());
+                libro.setAutor((Utilidades.leerString(randomAccessFile, 30)).trim());
+                libro.setAñoPublicacion((Utilidades.leerString(randomAccessFile, 8)).trim());
+                libro.setGenero((Utilidades.leerString(randomAccessFile, 25)).trim());
+                libro.setPrestable(randomAccessFile.readBoolean());
+                libro.setLector(randomAccessFile.readInt());
+                
+                if (idLibro == (libro.getId())){    
+                  
+                    break;
+                }                               
+            }        
+            
+            if (libro.getPrestable()){
+                
+                randomAccessFile.seek(randomAccessFile.getFilePointer()-4);
+                randomAccessFile.writeInt(idLector);
+                  
+            return true;
+            }
+            
+        } catch (EOFException endEx) {
+        
+            System.out.println("Fin del fichero.");
+            
+        } catch (IOException ioEx) {
+        
+            System.out.println(ioEx.getMessage());
+        }
+        return false;
     }
     
     public static void borrarFichero(){
