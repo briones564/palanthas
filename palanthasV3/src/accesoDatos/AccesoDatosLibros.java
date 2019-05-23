@@ -279,6 +279,59 @@ public class AccesoDatosLibros {
         Libro libro;
         
         int posicion = 0;
+        int prestamos = 0;
+        
+        try {
+            
+            randomAccessFile.seek(posicion);
+            
+            for (;;) {
+                
+                libro = new Libro();
+                libro.setId(randomAccessFile.readInt());          
+                libro.setTitulo((Utilidades.leerString(randomAccessFile, 26)).trim());
+                libro.setAutor((Utilidades.leerString(randomAccessFile, 30)).trim());
+                libro.setAñoPublicacion((Utilidades.leerString(randomAccessFile, 8)).trim());
+                libro.setGenero((Utilidades.leerString(randomAccessFile, 25)).trim());
+                libro.setPrestable(randomAccessFile.readBoolean());
+                libro.setLector(randomAccessFile.readInt());
+                
+                if (libro.getLector() == idLector) {
+                
+                    prestamos++;
+                }
+                if (idLibro == (libro.getId())){    
+                    
+                    break;
+                }                               
+            }              
+            if (libro.getPrestable() && libro.getLector() == 0 && prestamos < 2){
+                
+                randomAccessFile.seek(randomAccessFile.getFilePointer()-4);
+                randomAccessFile.writeInt(idLector);     
+                return true;
+            }
+            else {
+
+                return false;
+            }
+            
+        } catch (EOFException endEx) {
+        
+            System.out.println("Fin del fichero.");
+            
+        } catch (IOException ioEx) {
+        
+            System.out.println(ioEx.getMessage());
+        }
+        return false;
+    }
+    
+    public static boolean devolver(int idLibro){
+    
+        Libro libro;
+        
+        int posicion = 0;
         
         try {
 
@@ -295,20 +348,18 @@ public class AccesoDatosLibros {
                 libro.setPrestable(randomAccessFile.readBoolean());
                 libro.setLector(randomAccessFile.readInt());
                 
-                if (idLibro == (libro.getId())){    
-                  
-                    break;
-                }                               
-            }        
+                if (idLibro == (libro.getId()) && libro.getLector() != 0){    
+                    
+                    randomAccessFile.seek(randomAccessFile.getFilePointer()-4);
+                    randomAccessFile.writeInt(0);           
+                    return true;
+                }                                                
+                else if (libro.getId()!= idLibro) {
             
-            if (libro.getPrestable()){
-                
-                randomAccessFile.seek(randomAccessFile.getFilePointer()-4);
-                randomAccessFile.writeInt(idLector);
-                  
-            return true;
-            }
-            
+                    System.out.println("LIBRO NO PRESTADO");
+                    return false;
+                }
+            }                     
         } catch (EOFException endEx) {
         
             System.out.println("Fin del fichero.");

@@ -6,6 +6,7 @@
 package logicaNegocio;
 
 import accesoDatos.AccesoDatosLibros;
+import accesoDatos.accesoDatosLectores;
 
 /**
  *
@@ -90,6 +91,18 @@ public class LogicaLibros {
             return false;}
     }
     
+    public boolean devolver(int idLibro){
+    
+        if(accesoDatosLibros.devolver(idLibro)){
+            System.out.println("DEVUELTO");
+            return true;
+        }
+        
+        else{ 
+            System.out.println("NO DEVUELTO");
+            return false;}
+    }
+    
     public String verPrestamos(){
         
         String prestamos = "";
@@ -97,13 +110,28 @@ public class LogicaLibros {
         Libro libro = new Libro();
         Lector lector = new Lector();
 
-
-
         for (int i = 0; i < accesoDatosLibros.getLibros().size(); i++){
              
             if (accesoDatosLibros.getLibros().get(i).getLector()!= 0) {
             
                 prestamos += accesoDatosLibros.getLibros().get(i).toString() + "\n";
+            }
+        }
+        return prestamos;
+    }
+    
+    public String verLectoresAlquiler(){
+        
+        String prestamos = "";
+
+        Libro libro = new Libro();
+        Lector lector = new Lector();
+
+        for (int i = 0; i < accesoDatosLibros.getLibros().size(); i++){
+             
+            if (accesoDatosLibros.getLibros().get(i).getLector()!= 0) {
+            
+                prestamos += accesoDatosLectores.getLectores().get(accesoDatosLibros.getLibros().get(i).getLector()-1).toString() + "\n";
             }
         }
         return prestamos;

@@ -39,8 +39,13 @@ public class Interfaz {
         System.out.println("Titulo encontrado: " + logicaLibros.buscarTitulo("El niño 44").toString());      
         System.out.println("ID encontrado: " + logicaLibros.buscarID(14).toString());*/
         
-        logicaLibros.prestar(2, 2);
-        logicaLibros.prestar(3, 3);
-        System.out.println(logicaLibros.verPrestamos());
+        logicaLibros.prestar(4, 2);
+        logicaLibros.prestar(5, 3);
+        logicaLibros.prestar(6, 4);
+        System.out.print(logicaLibros.verPrestamos());
+        logicaLibros.devolver(1);
+        System.out.print(logicaLibros.visualizarLibros());
+        System.out.print(logicaLibros.verPrestamos());
+        System.out.println(logicaLibros.verLectoresAlquiler());
     }
 }
