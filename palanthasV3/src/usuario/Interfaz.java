@@ -40,7 +40,7 @@ public class Interfaz {
         System.out.println("ID encontrado: " + logicaLibros.buscarID(14).toString());*/
         
         logicaLibros.prestar(4, 2);
-        logicaLibros.prestar(5, 3);
+        logicaLibros.prestar(5, 6);
         logicaLibros.prestar(6, 4);
         System.out.print(logicaLibros.verPrestamos());
         logicaLibros.devolver(1);

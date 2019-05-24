@@ -6,6 +6,7 @@
 package usuario;
 
 import logicaNegocio.LogicaLectores;
+import static usuario.Interfaz.logicaLibros;
 
 /**
  *
@@ -17,7 +18,7 @@ public class JFrame extends javax.swing.JFrame {
      * Creates new form JFrame
      */
     
-    static LogicaLectores palanthas = new LogicaLectores();
+    static LogicaLectores logicaLectores = new LogicaLectores();
     
     public JFrame() {
         initComponents();
@@ -65,8 +66,58 @@ public class JFrame extends javax.swing.JFrame {
         textFieldLectoresModificarApellidos = new javax.swing.JTextField();
         textFieldLectoresModificarNif = new javax.swing.JTextField();
         textFieldLectoresModificarTelefono = new javax.swing.JTextField();
-        textFieldLectoresAltaEmail1 = new javax.swing.JTextField();
+        textFieldLectoresModificarEmail = new javax.swing.JTextField();
         botonLectoresModificarAceptar = new javax.swing.JButton();
+        labelLectoresModificarNombreOriginal = new javax.swing.JLabel();
+        textFieldLectoresModificarNombreOriginal = new javax.swing.JTextField();
+        ventanaLectoresBuscar = new javax.swing.JFrame();
+        panelVentanaLectoresBuscar = new javax.swing.JPanel();
+        labelLectoresBuscarId = new javax.swing.JLabel();
+        textFieldLectoresBuscarId = new javax.swing.JTextField();
+        botonLectoresBuscarId = new javax.swing.JButton();
+        labelLectoresBuscarNif = new javax.swing.JLabel();
+        textFieldLectoresBuscarNif = new javax.swing.JTextField();
+        botonLectoresBuscarNif = new javax.swing.JButton();
+        ventanaLibrosAlta = new javax.swing.JFrame();
+        panelVentanaLibrosAlta = new javax.swing.JPanel();
+        labelAltaLibroTitulo = new javax.swing.JLabel();
+        textFieldAltaLibroTitulo = new javax.swing.JTextField();
+        Autor = new javax.swing.JLabel();
+        textFieldAltaLibroAutor = new javax.swing.JTextField();
+        textFieldAltaLibroAñoPublicacion = new javax.swing.JTextField();
+        labelAltaLibroAñoPublicacion = new javax.swing.JLabel();
+        labelAltaLibroGenero = new javax.swing.JLabel();
+        textFieldAltaLibroGenero = new javax.swing.JTextField();
+        CheckBoxPrestable = new javax.swing.JCheckBox();
+        labelAltaLibroPrestable = new javax.swing.JLabel();
+        ButtonAltaLibroAceptar = new javax.swing.JButton();
+        ventanaLibrosVisualizar = new javax.swing.JFrame();
+        panelVentanaLibrosVisualizar = new javax.swing.JPanel();
+        scrollVentanaLibrosVisualizar = new javax.swing.JScrollPane();
+        textAreaLibrosVisualizar = new javax.swing.JTextArea();
+        ventanaLibrosModificar = new javax.swing.JFrame();
+        panelVentanaLibrosModificar = new javax.swing.JPanel();
+        labelLectoresModificarTituloOriginal = new javax.swing.JLabel();
+        labelLibrosModificarTitulo = new javax.swing.JLabel();
+        labelLibrosModificarAutor = new javax.swing.JLabel();
+        labelLibrosModificarAñoPublicacion = new javax.swing.JLabel();
+        labelLibrosModificarGenero = new javax.swing.JLabel();
+        labelLibrosModificarPrestable = new javax.swing.JLabel();
+        textFieldLibrosModificarTituloOriginal = new javax.swing.JTextField();
+        textFieldLibrosModificarTitulo = new javax.swing.JTextField();
+        textFieldLibrosModificarAutor = new javax.swing.JTextField();
+        textFieldLibrosModificarGenero = new javax.swing.JTextField();
+        textFieldLibrosModificarAñoPublicacion = new javax.swing.JTextField();
+        botonLibrosModificarAceptar = new javax.swing.JButton();
+        checkBoxLibrosModificarPrestable = new javax.swing.JCheckBox();
+        ventanaLibrosBuscar = new javax.swing.JFrame();
+        panelVentanaLibrosBuscar = new javax.swing.JPanel();
+        labelLibrosBuscarId = new javax.swing.JLabel();
+        textFieldLibrosBuscarId = new javax.swing.JTextField();
+        botonLibrosBuscarId = new javax.swing.JButton();
+        labelLibrosBuscarTitulo = new javax.swing.JLabel();
+        textFieldLibrosBuscarTitulo = new javax.swing.JTextField();
+        botonLibrosBuscarTitulo = new javax.swing.JButton();
         panelGeneral = new javax.swing.JPanel();
         panelLectores = new javax.swing.JPanel();
         lectoresAlta = new javax.swing.JButton();
@@ -74,8 +125,15 @@ public class JFrame extends javax.swing.JFrame {
         Modificar = new javax.swing.JButton();
         lectoresBuscar = new javax.swing.JButton();
         lectoresVisualizar = new javax.swing.JButton();
+        panelLibros = new javax.swing.JPanel();
+        librosAlta = new javax.swing.JButton();
+        librosModificar = new javax.swing.JButton();
+        librosBuscar = new javax.swing.JButton();
+        librosVisualizar = new javax.swing.JButton();
         panelUtilidades = new javax.swing.JPanel();
         utilidadesReset = new javax.swing.JButton();
+
+        ventanaLectoresAlta.setSize(new java.awt.Dimension(400, 500));
 
         panelVentanaLectoresAlta.setBorder(javax.swing.BorderFactory.createTitledBorder("Alta Lector"));
 
@@ -174,6 +232,8 @@ public class JFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        ventanaLectoresVisualizar.setSize(new java.awt.Dimension(400, 500));
+
         panelVentanaLectoresVisualizar.setBorder(javax.swing.BorderFactory.createTitledBorder("Lectores"));
 
         textAreaLectoresVisualizar.setColumns(20);
@@ -213,6 +273,8 @@ public class JFrame extends javax.swing.JFrame {
                 .addComponent(panelVentanaLectoresVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        ventanaLectoresBaja.setSize(new java.awt.Dimension(400, 500));
 
         panelVentanaLectoresBaja.setBorder(javax.swing.BorderFactory.createTitledBorder("Baja Lector"));
 
@@ -273,9 +335,16 @@ public class JFrame extends javax.swing.JFrame {
                     .addContainerGap()))
         );
 
+        ventanaLectoresModificar.setSize(new java.awt.Dimension(400, 500));
+        ventanaLectoresModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ventanaLectoresModificarMouseClicked(evt);
+            }
+        });
+
         panelVentanaLectoresModificar.setBorder(javax.swing.BorderFactory.createTitledBorder("Modificar Lector"));
 
-        labelLectoresModificarNombre.setText("Nombre");
+        labelLectoresModificarNombre.setText("Nombre Nuevo");
 
         labelLectoresModificarApellidos.setText("Apellidos");
 
@@ -285,10 +354,24 @@ public class JFrame extends javax.swing.JFrame {
 
         labelLectoresModificarEmail.setText("Email");
 
+        textFieldLectoresModificarNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldLectoresModificarNombreActionPerformed(evt);
+            }
+        });
+
         botonLectoresModificarAceptar.setText("Aceptar");
         botonLectoresModificarAceptar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 botonLectoresModificarAceptarMouseClicked(evt);
+            }
+        });
+
+        labelLectoresModificarNombreOriginal.setText("Nombre Original");
+
+        textFieldLectoresModificarNombreOriginal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldLectoresModificarNombreOriginalActionPerformed(evt);
             }
         });
 
@@ -301,10 +384,6 @@ public class JFrame extends javax.swing.JFrame {
                     .addGroup(panelVentanaLectoresModificarLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panelVentanaLectoresModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelVentanaLectoresModificarLayout.createSequentialGroup()
-                                .addComponent(labelLectoresModificarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textFieldLectoresModificarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelVentanaLectoresModificarLayout.createSequentialGroup()
                                 .addComponent(labelLectoresModificarApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -320,7 +399,15 @@ public class JFrame extends javax.swing.JFrame {
                             .addGroup(panelVentanaLectoresModificarLayout.createSequentialGroup()
                                 .addComponent(labelLectoresModificarEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textFieldLectoresAltaEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(textFieldLectoresModificarEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelVentanaLectoresModificarLayout.createSequentialGroup()
+                                .addGroup(panelVentanaLectoresModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelLectoresModificarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelLectoresModificarNombreOriginal))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelVentanaLectoresModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(textFieldLectoresModificarNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                                    .addComponent(textFieldLectoresModificarNombreOriginal)))))
                     .addGroup(panelVentanaLectoresModificarLayout.createSequentialGroup()
                         .addGap(142, 142, 142)
                         .addComponent(botonLectoresModificarAceptar)))
@@ -329,7 +416,11 @@ public class JFrame extends javax.swing.JFrame {
         panelVentanaLectoresModificarLayout.setVerticalGroup(
             panelVentanaLectoresModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelVentanaLectoresModificarLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(11, 11, 11)
+                .addGroup(panelVentanaLectoresModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelLectoresModificarNombreOriginal)
+                    .addComponent(textFieldLectoresModificarNombreOriginal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelVentanaLectoresModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelLectoresModificarNombre)
                     .addComponent(textFieldLectoresModificarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -348,8 +439,8 @@ public class JFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelVentanaLectoresModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelLectoresModificarEmail)
-                    .addComponent(textFieldLectoresAltaEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                    .addComponent(textFieldLectoresModificarEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(botonLectoresModificarAceptar))
         );
 
@@ -374,6 +465,488 @@ public class JFrame extends javax.swing.JFrame {
                     .addContainerGap()))
         );
 
+        ventanaLectoresBuscar.setSize(new java.awt.Dimension(400, 500));
+
+        panelVentanaLectoresBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscar Lector"));
+
+        labelLectoresBuscarId.setText("Escribe el ID del lector que deseas buscar:");
+
+        botonLectoresBuscarId.setText("Buscar");
+        botonLectoresBuscarId.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonLectoresBuscarIdMouseClicked(evt);
+            }
+        });
+        botonLectoresBuscarId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonLectoresBuscarIdActionPerformed(evt);
+            }
+        });
+
+        labelLectoresBuscarNif.setText("O escribe el NIF del lector que deseas buscar:");
+
+        botonLectoresBuscarNif.setText("Buscar");
+        botonLectoresBuscarNif.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonLectoresBuscarNifMouseClicked(evt);
+            }
+        });
+        botonLectoresBuscarNif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonLectoresBuscarNifActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelVentanaLectoresBuscarLayout = new javax.swing.GroupLayout(panelVentanaLectoresBuscar);
+        panelVentanaLectoresBuscar.setLayout(panelVentanaLectoresBuscarLayout);
+        panelVentanaLectoresBuscarLayout.setHorizontalGroup(
+            panelVentanaLectoresBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaLectoresBuscarLayout.createSequentialGroup()
+                .addGroup(panelVentanaLectoresBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelVentanaLectoresBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelVentanaLectoresBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelLectoresBuscarId, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                            .addComponent(textFieldLectoresBuscarId)
+                            .addComponent(labelLectoresBuscarNif, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                            .addComponent(textFieldLectoresBuscarNif)))
+                    .addGroup(panelVentanaLectoresBuscarLayout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(botonLectoresBuscarId)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(panelVentanaLectoresBuscarLayout.createSequentialGroup()
+                .addGap(207, 207, 207)
+                .addComponent(botonLectoresBuscarNif)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelVentanaLectoresBuscarLayout.setVerticalGroup(
+            panelVentanaLectoresBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaLectoresBuscarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelLectoresBuscarId)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textFieldLectoresBuscarId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonLectoresBuscarId)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelLectoresBuscarNif)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textFieldLectoresBuscarNif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonLectoresBuscarNif)
+                .addContainerGap(100, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout ventanaLectoresBuscarLayout = new javax.swing.GroupLayout(ventanaLectoresBuscar.getContentPane());
+        ventanaLectoresBuscar.getContentPane().setLayout(ventanaLectoresBuscarLayout);
+        ventanaLectoresBuscarLayout.setHorizontalGroup(
+            ventanaLectoresBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(ventanaLectoresBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ventanaLectoresBuscarLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelVentanaLectoresBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        ventanaLectoresBuscarLayout.setVerticalGroup(
+            ventanaLectoresBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(ventanaLectoresBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ventanaLectoresBuscarLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelVentanaLectoresBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        ventanaLibrosAlta.setSize(new java.awt.Dimension(500, 400));
+
+        panelVentanaLibrosAlta.setBorder(javax.swing.BorderFactory.createTitledBorder("Alta Libro"));
+
+        labelAltaLibroTitulo.setText("Título");
+
+        textFieldAltaLibroTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldAltaLibroTituloActionPerformed(evt);
+            }
+        });
+
+        Autor.setText("Autor");
+
+        textFieldAltaLibroAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldAltaLibroAutorActionPerformed(evt);
+            }
+        });
+
+        textFieldAltaLibroAñoPublicacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldAltaLibroAñoPublicacionActionPerformed(evt);
+            }
+        });
+
+        labelAltaLibroAñoPublicacion.setText("Año Publicación");
+
+        labelAltaLibroGenero.setText("Género");
+
+        textFieldAltaLibroGenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldAltaLibroGeneroActionPerformed(evt);
+            }
+        });
+
+        labelAltaLibroPrestable.setText("Prestable");
+
+        ButtonAltaLibroAceptar.setText("Aceptar");
+        ButtonAltaLibroAceptar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ButtonAltaLibroAceptarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelVentanaLibrosAltaLayout = new javax.swing.GroupLayout(panelVentanaLibrosAlta);
+        panelVentanaLibrosAlta.setLayout(panelVentanaLibrosAltaLayout);
+        panelVentanaLibrosAltaLayout.setHorizontalGroup(
+            panelVentanaLibrosAltaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVentanaLibrosAltaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelVentanaLibrosAltaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelAltaLibroTitulo)
+                    .addComponent(Autor)
+                    .addComponent(labelAltaLibroAñoPublicacion)
+                    .addComponent(labelAltaLibroGenero)
+                    .addComponent(labelAltaLibroPrestable))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelVentanaLibrosAltaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CheckBoxPrestable)
+                    .addGroup(panelVentanaLibrosAltaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(textFieldAltaLibroGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                        .addComponent(textFieldAltaLibroAñoPublicacion)
+                        .addComponent(textFieldAltaLibroAutor)
+                        .addComponent(textFieldAltaLibroTitulo)))
+                .addContainerGap())
+            .addGroup(panelVentanaLibrosAltaLayout.createSequentialGroup()
+                .addGap(151, 151, 151)
+                .addComponent(ButtonAltaLibroAceptar)
+                .addContainerGap(246, Short.MAX_VALUE))
+        );
+        panelVentanaLibrosAltaLayout.setVerticalGroup(
+            panelVentanaLibrosAltaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaLibrosAltaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelVentanaLibrosAltaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelAltaLibroTitulo)
+                    .addComponent(textFieldAltaLibroTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelVentanaLibrosAltaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Autor)
+                    .addComponent(textFieldAltaLibroAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelVentanaLibrosAltaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelAltaLibroAñoPublicacion)
+                    .addComponent(textFieldAltaLibroAñoPublicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelVentanaLibrosAltaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelAltaLibroGenero)
+                    .addComponent(textFieldAltaLibroGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelVentanaLibrosAltaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelAltaLibroPrestable)
+                    .addComponent(CheckBoxPrestable))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addComponent(ButtonAltaLibroAceptar)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout ventanaLibrosAltaLayout = new javax.swing.GroupLayout(ventanaLibrosAlta.getContentPane());
+        ventanaLibrosAlta.getContentPane().setLayout(ventanaLibrosAltaLayout);
+        ventanaLibrosAltaLayout.setHorizontalGroup(
+            ventanaLibrosAltaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(ventanaLibrosAltaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ventanaLibrosAltaLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelVentanaLibrosAlta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        ventanaLibrosAltaLayout.setVerticalGroup(
+            ventanaLibrosAltaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 317, Short.MAX_VALUE)
+            .addGroup(ventanaLibrosAltaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ventanaLibrosAltaLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelVentanaLibrosAlta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        ventanaLibrosVisualizar.setSize(new java.awt.Dimension(400, 500));
+
+        panelVentanaLibrosVisualizar.setBorder(javax.swing.BorderFactory.createTitledBorder("Libros"));
+
+        textAreaLibrosVisualizar.setColumns(20);
+        textAreaLibrosVisualizar.setRows(5);
+        scrollVentanaLibrosVisualizar.setViewportView(textAreaLibrosVisualizar);
+
+        javax.swing.GroupLayout panelVentanaLibrosVisualizarLayout = new javax.swing.GroupLayout(panelVentanaLibrosVisualizar);
+        panelVentanaLibrosVisualizar.setLayout(panelVentanaLibrosVisualizarLayout);
+        panelVentanaLibrosVisualizarLayout.setHorizontalGroup(
+            panelVentanaLibrosVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaLibrosVisualizarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollVentanaLibrosVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelVentanaLibrosVisualizarLayout.setVerticalGroup(
+            panelVentanaLibrosVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaLibrosVisualizarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollVentanaLibrosVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout ventanaLibrosVisualizarLayout = new javax.swing.GroupLayout(ventanaLibrosVisualizar.getContentPane());
+        ventanaLibrosVisualizar.getContentPane().setLayout(ventanaLibrosVisualizarLayout);
+        ventanaLibrosVisualizarLayout.setHorizontalGroup(
+            ventanaLibrosVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaLibrosVisualizarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelVentanaLibrosVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        ventanaLibrosVisualizarLayout.setVerticalGroup(
+            ventanaLibrosVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaLibrosVisualizarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelVentanaLibrosVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        ventanaLibrosModificar.setSize(new java.awt.Dimension(400, 500));
+        ventanaLibrosModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ventanaLibrosModificarMouseClicked(evt);
+            }
+        });
+
+        panelVentanaLibrosModificar.setBorder(javax.swing.BorderFactory.createTitledBorder("Modificar Libro"));
+
+        labelLectoresModificarTituloOriginal.setText("Título Original");
+
+        labelLibrosModificarTitulo.setText("Título Nuevo");
+
+        labelLibrosModificarAutor.setText("Autor");
+
+        labelLibrosModificarAñoPublicacion.setText("Género");
+
+        labelLibrosModificarGenero.setText("Año Publicación");
+
+        labelLibrosModificarPrestable.setText("Prestable");
+
+        textFieldLibrosModificarTituloOriginal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldLibrosModificarTituloOriginalActionPerformed(evt);
+            }
+        });
+
+        textFieldLibrosModificarTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldLibrosModificarTituloActionPerformed(evt);
+            }
+        });
+
+        botonLibrosModificarAceptar.setText("Aceptar");
+        botonLibrosModificarAceptar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonLibrosModificarAceptarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelVentanaLibrosModificarLayout = new javax.swing.GroupLayout(panelVentanaLibrosModificar);
+        panelVentanaLibrosModificar.setLayout(panelVentanaLibrosModificarLayout);
+        panelVentanaLibrosModificarLayout.setHorizontalGroup(
+            panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
+                .addGroup(panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
+                                .addComponent(labelLibrosModificarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textFieldLibrosModificarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
+                                .addComponent(labelLibrosModificarAñoPublicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textFieldLibrosModificarGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
+                                .addComponent(labelLibrosModificarGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textFieldLibrosModificarAñoPublicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
+                                .addComponent(labelLibrosModificarPrestable, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(checkBoxLibrosModificarPrestable))
+                            .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
+                                .addGroup(panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelLibrosModificarTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelLectoresModificarTituloOriginal))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(textFieldLibrosModificarTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                                    .addComponent(textFieldLibrosModificarTituloOriginal)))))
+                    .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(botonLibrosModificarAceptar)))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        panelVentanaLibrosModificarLayout.setVerticalGroup(
+            panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addGroup(panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelLectoresModificarTituloOriginal)
+                    .addComponent(textFieldLibrosModificarTituloOriginal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelLibrosModificarTitulo)
+                    .addComponent(textFieldLibrosModificarTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelLibrosModificarAutor)
+                    .addComponent(textFieldLibrosModificarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelLibrosModificarAñoPublicacion)
+                    .addComponent(textFieldLibrosModificarGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelLibrosModificarGenero)
+                    .addComponent(textFieldLibrosModificarAñoPublicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelLibrosModificarPrestable)
+                    .addComponent(checkBoxLibrosModificarPrestable))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(botonLibrosModificarAceptar))
+        );
+
+        javax.swing.GroupLayout ventanaLibrosModificarLayout = new javax.swing.GroupLayout(ventanaLibrosModificar.getContentPane());
+        ventanaLibrosModificar.getContentPane().setLayout(ventanaLibrosModificarLayout);
+        ventanaLibrosModificarLayout.setHorizontalGroup(
+            ventanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(ventanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ventanaLibrosModificarLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelVentanaLibrosModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        ventanaLibrosModificarLayout.setVerticalGroup(
+            ventanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(ventanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ventanaLibrosModificarLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelVentanaLibrosModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        ventanaLibrosBuscar.setSize(new java.awt.Dimension(400, 500));
+
+        panelVentanaLibrosBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscar Libro"));
+
+        labelLibrosBuscarId.setText("Escribe el ID del libro que deseas buscar:");
+
+        botonLibrosBuscarId.setText("Buscar");
+        botonLibrosBuscarId.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonLibrosBuscarIdMouseClicked(evt);
+            }
+        });
+        botonLibrosBuscarId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonLibrosBuscarIdActionPerformed(evt);
+            }
+        });
+
+        labelLibrosBuscarTitulo.setText("O escribe el Titulo del libro que deseas buscar:");
+
+        botonLibrosBuscarTitulo.setText("Buscar");
+        botonLibrosBuscarTitulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonLibrosBuscarTituloMouseClicked(evt);
+            }
+        });
+        botonLibrosBuscarTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonLibrosBuscarTituloActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelVentanaLibrosBuscarLayout = new javax.swing.GroupLayout(panelVentanaLibrosBuscar);
+        panelVentanaLibrosBuscar.setLayout(panelVentanaLibrosBuscarLayout);
+        panelVentanaLibrosBuscarLayout.setHorizontalGroup(
+            panelVentanaLibrosBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaLibrosBuscarLayout.createSequentialGroup()
+                .addGroup(panelVentanaLibrosBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelVentanaLibrosBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelVentanaLibrosBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelLibrosBuscarId, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                            .addComponent(textFieldLibrosBuscarId)
+                            .addComponent(labelLibrosBuscarTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                            .addComponent(textFieldLibrosBuscarTitulo)))
+                    .addGroup(panelVentanaLibrosBuscarLayout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(botonLibrosBuscarId)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(panelVentanaLibrosBuscarLayout.createSequentialGroup()
+                .addGap(207, 207, 207)
+                .addComponent(botonLibrosBuscarTitulo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelVentanaLibrosBuscarLayout.setVerticalGroup(
+            panelVentanaLibrosBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaLibrosBuscarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelLibrosBuscarId)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textFieldLibrosBuscarId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonLibrosBuscarId)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelLibrosBuscarTitulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textFieldLibrosBuscarTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonLibrosBuscarTitulo)
+                .addContainerGap(100, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout ventanaLibrosBuscarLayout = new javax.swing.GroupLayout(ventanaLibrosBuscar.getContentPane());
+        ventanaLibrosBuscar.getContentPane().setLayout(ventanaLibrosBuscarLayout);
+        ventanaLibrosBuscarLayout.setHorizontalGroup(
+            ventanaLibrosBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 548, Short.MAX_VALUE)
+            .addGroup(ventanaLibrosBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ventanaLibrosBuscarLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelVentanaLibrosBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        ventanaLibrosBuscarLayout.setVerticalGroup(
+            ventanaLibrosBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(ventanaLibrosBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ventanaLibrosBuscarLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelVentanaLibrosBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        panelVentanaLibrosBuscar.getAccessibleContext().setAccessibleName("");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panelGeneral.setBorder(javax.swing.BorderFactory.createTitledBorder("Biblioteca de Palanthas"));
@@ -395,8 +968,23 @@ public class JFrame extends javax.swing.JFrame {
         });
 
         Modificar.setText("Modificar");
+        Modificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ModificarMouseClicked(evt);
+            }
+        });
+        Modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarActionPerformed(evt);
+            }
+        });
 
         lectoresBuscar.setText("Buscar");
+        lectoresBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lectoresBuscarMouseClicked(evt);
+            }
+        });
 
         lectoresVisualizar.setText("Visualizar");
         lectoresVisualizar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -440,6 +1028,83 @@ public class JFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        panelLibros.setBorder(javax.swing.BorderFactory.createTitledBorder("Libros"));
+
+        librosAlta.setText("Alta");
+        librosAlta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                librosAltaMouseClicked(evt);
+            }
+        });
+        librosAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                librosAltaActionPerformed(evt);
+            }
+        });
+
+        librosModificar.setText("Modificar");
+        librosModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                librosModificarMouseClicked(evt);
+            }
+        });
+        librosModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                librosModificarActionPerformed(evt);
+            }
+        });
+
+        librosBuscar.setText("Buscar");
+        librosBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                librosBuscarMouseClicked(evt);
+            }
+        });
+        librosBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                librosBuscarActionPerformed(evt);
+            }
+        });
+
+        librosVisualizar.setText("Visualizar");
+        librosVisualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                librosVisualizarMouseClicked(evt);
+            }
+        });
+        librosVisualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                librosVisualizarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelLibrosLayout = new javax.swing.GroupLayout(panelLibros);
+        panelLibros.setLayout(panelLibrosLayout);
+        panelLibrosLayout.setHorizontalGroup(
+            panelLibrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLibrosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelLibrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(librosAlta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(librosModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                    .addComponent(librosBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                    .addComponent(librosVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        panelLibrosLayout.setVerticalGroup(
+            panelLibrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLibrosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(librosAlta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(librosModificar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(librosBuscar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(librosVisualizar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         panelUtilidades.setBorder(javax.swing.BorderFactory.createTitledBorder("Utilidades"));
 
         utilidadesReset.setText("Reset");
@@ -473,7 +1138,9 @@ public class JFrame extends javax.swing.JFrame {
             .addGroup(panelGeneralLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelLectores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
+                .addComponent(panelLibros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(panelUtilidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -483,6 +1150,7 @@ public class JFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panelUtilidades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelLibros, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelLectores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -491,7 +1159,7 @@ public class JFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 552, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -502,10 +1170,10 @@ public class JFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 251, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                    .addComponent(panelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -516,41 +1184,202 @@ public class JFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_lectoresVisualizarActionPerformed
 
     private void utilidadesResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_utilidadesResetMouseClicked
-        // TODO add your handling code here:
-        palanthas.reset();
+        
+        logicaLectores.reset();
+        logicaLibros.reset();
+        
     }//GEN-LAST:event_utilidadesResetMouseClicked
 
     private void lectoresVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lectoresVisualizarMouseClicked
-        // TODO add your handling code here:
+        
         ventanaLectoresVisualizar.setVisible(true);
-        textAreaLectoresVisualizar.setText(palanthas.visualizarLectores());
+        textAreaLectoresVisualizar.setText(logicaLectores.visualizarLectores());
+        
     }//GEN-LAST:event_lectoresVisualizarMouseClicked
 
     private void botonLectoresAltaAceptarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonLectoresAltaAceptarMouseClicked
-        // TODO add your handling code here:
-        palanthas.altaLector(textFieldLectoresAltaNombre.getText(), textFieldLectoresAltaApellidos.getText(), textFieldLectoresAltaNif.getText(), textFieldLectoresAltaTelefono.getText(), textFieldLectoresAltaEmail.getText());
+        
+        logicaLectores.altaLector(textFieldLectoresAltaNombre.getText(), textFieldLectoresAltaApellidos.getText(), textFieldLectoresAltaNif.getText(), textFieldLectoresAltaTelefono.getText(), textFieldLectoresAltaEmail.getText());
         ventanaLectoresAlta.setVisible(false);
+        
     }//GEN-LAST:event_botonLectoresAltaAceptarMouseClicked
 
     private void lectoresAltaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lectoresAltaMouseClicked
-        // TODO add your handling code here:
+        
         ventanaLectoresAlta.setVisible(true);
+        
     }//GEN-LAST:event_lectoresAltaMouseClicked
 
     private void botonLectoresBajaAceptarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonLectoresBajaAceptarMouseClicked
-        // TODO add your handling code here:
-        palanthas.bajaLector(Integer.parseInt(textFieldLectoresBaja.getText()));
+        
+        logicaLectores.bajaLector(Integer.parseInt(textFieldLectoresBaja.getText()));
         ventanaLectoresBaja.setVisible(false);
+        
     }//GEN-LAST:event_botonLectoresBajaAceptarMouseClicked
 
     private void lectoresBajaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lectoresBajaMouseClicked
-        // TODO add your handling code here:
+        
         ventanaLectoresBaja.setVisible(true);
+        
     }//GEN-LAST:event_lectoresBajaMouseClicked
 
     private void botonLectoresModificarAceptarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonLectoresModificarAceptarMouseClicked
-        // TODO add your handling code here:
+
+        logicaLectores.modificarLector(textFieldLectoresModificarNombreOriginal.getText(), textFieldLectoresModificarNombre.getText(), textFieldLectoresModificarApellidos.getText(), textFieldLectoresModificarNif.getText(), textFieldLectoresModificarTelefono.getText(), textFieldLectoresModificarEmail.getText());
+        ventanaLectoresModificar.setVisible(false);
+      
     }//GEN-LAST:event_botonLectoresModificarAceptarMouseClicked
+
+    private void librosAltaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_librosAltaMouseClicked
+        
+        ventanaLibrosAlta.setVisible(true);
+        
+    }//GEN-LAST:event_librosAltaMouseClicked
+
+    private void librosModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_librosModificarMouseClicked
+        
+        ventanaLibrosModificar.setVisible(true);
+        
+    }//GEN-LAST:event_librosModificarMouseClicked
+
+    private void librosVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_librosVisualizarMouseClicked
+        
+        ventanaLibrosVisualizar.setVisible(true);
+        textAreaLibrosVisualizar.setText(logicaLibros.visualizarLibros());
+        
+    }//GEN-LAST:event_librosVisualizarMouseClicked
+
+    private void librosVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_librosVisualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_librosVisualizarActionPerformed
+
+    private void librosAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_librosAltaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_librosAltaActionPerformed
+
+    private void librosModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_librosModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_librosModificarActionPerformed
+
+    private void librosBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_librosBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_librosBuscarActionPerformed
+
+    private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ModificarActionPerformed
+
+    private void textFieldLectoresModificarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldLectoresModificarNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldLectoresModificarNombreActionPerformed
+
+    private void textFieldLectoresModificarNombreOriginalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldLectoresModificarNombreOriginalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldLectoresModificarNombreOriginalActionPerformed
+
+    private void lectoresBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lectoresBuscarMouseClicked
+        
+        ventanaLectoresBuscar.setVisible(true);
+        
+    }//GEN-LAST:event_lectoresBuscarMouseClicked
+
+    private void botonLectoresBuscarIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonLectoresBuscarIdMouseClicked
+        
+        textFieldLectoresBuscarId.setText(( logicaLectores.buscarID ( Integer.parseInt( textFieldLectoresBuscarId.getText() ) ) ).toString());
+        //ventanaLectoresBuscar.setVisible(false);
+        
+    }//GEN-LAST:event_botonLectoresBuscarIdMouseClicked
+
+    private void botonLectoresBuscarIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLectoresBuscarIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonLectoresBuscarIdActionPerformed
+
+    private void botonLectoresBuscarNifMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonLectoresBuscarNifMouseClicked
+        
+        textFieldLectoresBuscarNif.setText(( logicaLectores.buscarNIF( textFieldLectoresBuscarNif.getText()).toString()));
+        
+    }//GEN-LAST:event_botonLectoresBuscarNifMouseClicked
+
+    private void botonLectoresBuscarNifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLectoresBuscarNifActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonLectoresBuscarNifActionPerformed
+
+    private void ventanaLectoresModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ventanaLectoresModificarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ventanaLectoresModificarMouseClicked
+
+    private void ModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarMouseClicked
+        
+        ventanaLectoresModificar.setVisible(true);
+        
+    }//GEN-LAST:event_ModificarMouseClicked
+
+    private void textFieldAltaLibroTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldAltaLibroTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldAltaLibroTituloActionPerformed
+
+    private void textFieldAltaLibroAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldAltaLibroAutorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldAltaLibroAutorActionPerformed
+
+    private void textFieldAltaLibroAñoPublicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldAltaLibroAñoPublicacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldAltaLibroAñoPublicacionActionPerformed
+
+    private void textFieldAltaLibroGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldAltaLibroGeneroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldAltaLibroGeneroActionPerformed
+
+    private void ButtonAltaLibroAceptarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonAltaLibroAceptarMouseClicked
+        
+        logicaLibros.altaLibro(textFieldAltaLibroTitulo.getText(), textFieldAltaLibroAutor.getText(), textFieldAltaLibroAñoPublicacion.getText(), textFieldAltaLibroGenero.getText(), CheckBoxPrestable.isSelected());
+        ventanaLibrosAlta.setVisible(false);
+    }//GEN-LAST:event_ButtonAltaLibroAceptarMouseClicked
+
+    private void textFieldLibrosModificarTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldLibrosModificarTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldLibrosModificarTituloActionPerformed
+
+    private void botonLibrosModificarAceptarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonLibrosModificarAceptarMouseClicked
+        
+        logicaLibros.modificarLibro(textFieldLibrosModificarTituloOriginal.getText(), textFieldLibrosModificarTitulo.getText(), textFieldLibrosModificarAutor.getText(), textFieldLibrosModificarAñoPublicacion.getText(), textFieldLibrosModificarGenero.getText(), checkBoxLibrosModificarPrestable.isSelected());
+        ventanaLibrosModificar.setVisible(false);
+        
+    }//GEN-LAST:event_botonLibrosModificarAceptarMouseClicked
+
+    private void textFieldLibrosModificarTituloOriginalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldLibrosModificarTituloOriginalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldLibrosModificarTituloOriginalActionPerformed
+
+    private void ventanaLibrosModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ventanaLibrosModificarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ventanaLibrosModificarMouseClicked
+
+    private void botonLibrosBuscarIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonLibrosBuscarIdMouseClicked
+        
+        textFieldLibrosBuscarId.setText(logicaLibros.buscarID (Integer.parseInt(textFieldLibrosBuscarId.getText()) ).toString());
+        
+    }//GEN-LAST:event_botonLibrosBuscarIdMouseClicked
+
+    private void botonLibrosBuscarIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLibrosBuscarIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonLibrosBuscarIdActionPerformed
+
+    private void botonLibrosBuscarTituloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonLibrosBuscarTituloMouseClicked
+        
+        textFieldLibrosBuscarTitulo.setText(logicaLibros.buscarTitulo(textFieldLibrosBuscarTitulo.getText()).toString());
+        
+    }//GEN-LAST:event_botonLibrosBuscarTituloMouseClicked
+
+    private void botonLibrosBuscarTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLibrosBuscarTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonLibrosBuscarTituloActionPerformed
+
+    private void librosBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_librosBuscarMouseClicked
+        
+        ventanaLibrosBuscar.setVisible(true);
+        
+    }//GEN-LAST:event_librosBuscarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -588,49 +1417,104 @@ public class JFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Autor;
+    private javax.swing.JButton ButtonAltaLibroAceptar;
+    private javax.swing.JCheckBox CheckBoxPrestable;
     private javax.swing.JButton Modificar;
     private javax.swing.JButton botonLectoresAltaAceptar;
     private javax.swing.JButton botonLectoresBajaAceptar;
+    private javax.swing.JButton botonLectoresBuscarId;
+    private javax.swing.JButton botonLectoresBuscarNif;
     private javax.swing.JButton botonLectoresModificarAceptar;
+    private javax.swing.JButton botonLibrosBuscarId;
+    private javax.swing.JButton botonLibrosBuscarTitulo;
+    private javax.swing.JButton botonLibrosModificarAceptar;
+    private javax.swing.JCheckBox checkBoxLibrosModificarPrestable;
+    private javax.swing.JLabel labelAltaLibroAñoPublicacion;
+    private javax.swing.JLabel labelAltaLibroGenero;
+    private javax.swing.JLabel labelAltaLibroPrestable;
+    private javax.swing.JLabel labelAltaLibroTitulo;
     private javax.swing.JLabel labelLectoresAltaApellidos;
     private javax.swing.JLabel labelLectoresAltaEmail;
     private javax.swing.JLabel labelLectoresAltaNif;
     private javax.swing.JLabel labelLectoresAltaNombre;
     private javax.swing.JLabel labelLectoresAltaTelefono;
     private javax.swing.JLabel labelLectoresBaja;
+    private javax.swing.JLabel labelLectoresBuscarId;
+    private javax.swing.JLabel labelLectoresBuscarNif;
     private javax.swing.JLabel labelLectoresModificarApellidos;
     private javax.swing.JLabel labelLectoresModificarEmail;
     private javax.swing.JLabel labelLectoresModificarNif;
     private javax.swing.JLabel labelLectoresModificarNombre;
+    private javax.swing.JLabel labelLectoresModificarNombreOriginal;
     private javax.swing.JLabel labelLectoresModificarTelefono;
+    private javax.swing.JLabel labelLectoresModificarTituloOriginal;
+    private javax.swing.JLabel labelLibrosBuscarId;
+    private javax.swing.JLabel labelLibrosBuscarTitulo;
+    private javax.swing.JLabel labelLibrosModificarAutor;
+    private javax.swing.JLabel labelLibrosModificarAñoPublicacion;
+    private javax.swing.JLabel labelLibrosModificarGenero;
+    private javax.swing.JLabel labelLibrosModificarPrestable;
+    private javax.swing.JLabel labelLibrosModificarTitulo;
     private javax.swing.JButton lectoresAlta;
     private javax.swing.JButton lectoresBaja;
     private javax.swing.JButton lectoresBuscar;
     private javax.swing.JButton lectoresVisualizar;
+    private javax.swing.JButton librosAlta;
+    private javax.swing.JButton librosBuscar;
+    private javax.swing.JButton librosModificar;
+    private javax.swing.JButton librosVisualizar;
     private javax.swing.JPanel panelGeneral;
     private javax.swing.JPanel panelLectores;
+    private javax.swing.JPanel panelLibros;
     private javax.swing.JPanel panelUtilidades;
     private javax.swing.JPanel panelVentanaLectoresAlta;
     private javax.swing.JPanel panelVentanaLectoresBaja;
+    private javax.swing.JPanel panelVentanaLectoresBuscar;
     private javax.swing.JPanel panelVentanaLectoresModificar;
     private javax.swing.JPanel panelVentanaLectoresVisualizar;
+    private javax.swing.JPanel panelVentanaLibrosAlta;
+    private javax.swing.JPanel panelVentanaLibrosBuscar;
+    private javax.swing.JPanel panelVentanaLibrosModificar;
+    private javax.swing.JPanel panelVentanaLibrosVisualizar;
     private javax.swing.JScrollPane scrollVentanaLectoresVisualizar;
+    private javax.swing.JScrollPane scrollVentanaLibrosVisualizar;
     private javax.swing.JTextArea textAreaLectoresVisualizar;
+    private javax.swing.JTextArea textAreaLibrosVisualizar;
+    private javax.swing.JTextField textFieldAltaLibroAutor;
+    private javax.swing.JTextField textFieldAltaLibroAñoPublicacion;
+    private javax.swing.JTextField textFieldAltaLibroGenero;
+    private javax.swing.JTextField textFieldAltaLibroTitulo;
     private javax.swing.JTextField textFieldLectoresAltaApellidos;
     private javax.swing.JTextField textFieldLectoresAltaEmail;
-    private javax.swing.JTextField textFieldLectoresAltaEmail1;
     private javax.swing.JTextField textFieldLectoresAltaNif;
     private javax.swing.JTextField textFieldLectoresAltaNombre;
     private javax.swing.JTextField textFieldLectoresAltaTelefono;
     private javax.swing.JTextField textFieldLectoresBaja;
+    private javax.swing.JTextField textFieldLectoresBuscarId;
+    private javax.swing.JTextField textFieldLectoresBuscarNif;
     private javax.swing.JTextField textFieldLectoresModificarApellidos;
+    private javax.swing.JTextField textFieldLectoresModificarEmail;
     private javax.swing.JTextField textFieldLectoresModificarNif;
     private javax.swing.JTextField textFieldLectoresModificarNombre;
+    private javax.swing.JTextField textFieldLectoresModificarNombreOriginal;
     private javax.swing.JTextField textFieldLectoresModificarTelefono;
+    private javax.swing.JTextField textFieldLibrosBuscarId;
+    private javax.swing.JTextField textFieldLibrosBuscarTitulo;
+    private javax.swing.JTextField textFieldLibrosModificarAutor;
+    private javax.swing.JTextField textFieldLibrosModificarAñoPublicacion;
+    private javax.swing.JTextField textFieldLibrosModificarGenero;
+    private javax.swing.JTextField textFieldLibrosModificarTitulo;
+    private javax.swing.JTextField textFieldLibrosModificarTituloOriginal;
     private javax.swing.JButton utilidadesReset;
     private javax.swing.JFrame ventanaLectoresAlta;
     private javax.swing.JFrame ventanaLectoresBaja;
+    private javax.swing.JFrame ventanaLectoresBuscar;
     private javax.swing.JFrame ventanaLectoresModificar;
     private javax.swing.JFrame ventanaLectoresVisualizar;
+    private javax.swing.JFrame ventanaLibrosAlta;
+    private javax.swing.JFrame ventanaLibrosBuscar;
+    private javax.swing.JFrame ventanaLibrosModificar;
+    private javax.swing.JFrame ventanaLibrosVisualizar;
     // End of variables declaration//GEN-END:variables
 }
