@@ -87,8 +87,8 @@ public class Libro {
         return idLector;
     }
 
-    @Override
+    @Override   
     public String toString() {
-        return "Libro{" + "id=" + id + ", titulo=" + titulo + ", autor=" + autor + ", a\u00f1oPublicacion=" + añoPublicacion + ", genero=" + genero + ", prestable=" + prestable + ", idLector=" + idLector + '}';
+        return "·ID: " + id + " | TITULO: " + titulo + " | AUTOR: " + autor + " | AÑO PUBLICACIÓN: " + añoPublicacion + " | GÉNERO: " + genero + " | PRESTABLE: " + prestable + " | ID LECTOR: " + idLector + " |";
     }
 }

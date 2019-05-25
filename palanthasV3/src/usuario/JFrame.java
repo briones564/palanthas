@@ -5,6 +5,8 @@
  */
 package usuario;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import logicaNegocio.LogicaLectores;
 import static usuario.Interfaz.logicaLibros;
 
@@ -118,6 +120,26 @@ public class JFrame extends javax.swing.JFrame {
         labelLibrosBuscarTitulo = new javax.swing.JLabel();
         textFieldLibrosBuscarTitulo = new javax.swing.JTextField();
         botonLibrosBuscarTitulo = new javax.swing.JButton();
+        ventanaPrestamos = new javax.swing.JFrame();
+        panelVentanaPrestamos = new javax.swing.JPanel();
+        labelVentanaPrestamosLector = new javax.swing.JLabel();
+        labelVentanaPrestamosIdLibro = new javax.swing.JLabel();
+        textFieldPrestamosIdLector = new javax.swing.JTextField();
+        textFieldPrestamosIdLibro = new javax.swing.JTextField();
+        botonVentanaPrestamosAceptar = new javax.swing.JButton();
+        ventanaDevoluciones = new javax.swing.JFrame();
+        panelVentanaDevoluciones = new javax.swing.JPanel();
+        labelVentanaDevolucionesIdLibro = new javax.swing.JLabel();
+        textFieldDevolucionesIdLibro = new javax.swing.JTextField();
+        botonVentanaDevolucionesAceptar = new javax.swing.JButton();
+        ventanaLibrosPrestados = new javax.swing.JFrame();
+        panelLibrosPrestados = new javax.swing.JPanel();
+        scrollLibrosPrestados = new javax.swing.JScrollPane();
+        textAreaLibrosPrestados = new javax.swing.JTextArea();
+        ventanaLectoresAlquiler = new javax.swing.JFrame();
+        panelLectoresAlquiler = new javax.swing.JPanel();
+        scrollLectoresAlquiler = new javax.swing.JScrollPane();
+        textAreaLectoresAlquiler = new javax.swing.JTextArea();
         panelGeneral = new javax.swing.JPanel();
         panelLectores = new javax.swing.JPanel();
         lectoresAlta = new javax.swing.JButton();
@@ -131,9 +153,15 @@ public class JFrame extends javax.swing.JFrame {
         librosBuscar = new javax.swing.JButton();
         librosVisualizar = new javax.swing.JButton();
         panelUtilidades = new javax.swing.JPanel();
-        utilidadesReset = new javax.swing.JButton();
+        utilidadesResetLectores = new javax.swing.JButton();
+        utilidadesResetLibros = new javax.swing.JButton();
+        panelPrestamos = new javax.swing.JPanel();
+        botonPrestar = new javax.swing.JButton();
+        botonDevolver = new javax.swing.JButton();
+        botonVerLibrosPrestados = new javax.swing.JButton();
+        botonVerLectoresAlquiler = new javax.swing.JButton();
 
-        ventanaLectoresAlta.setSize(new java.awt.Dimension(400, 500));
+        ventanaLectoresAlta.setSize(new java.awt.Dimension(400, 300));
 
         panelVentanaLectoresAlta.setBorder(javax.swing.BorderFactory.createTitledBorder("Alta Lector"));
 
@@ -232,7 +260,7 @@ public class JFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        ventanaLectoresVisualizar.setSize(new java.awt.Dimension(400, 500));
+        ventanaLectoresVisualizar.setSize(new java.awt.Dimension(900, 500));
 
         panelVentanaLectoresVisualizar.setBorder(javax.swing.BorderFactory.createTitledBorder("Lectores"));
 
@@ -246,14 +274,14 @@ public class JFrame extends javax.swing.JFrame {
             panelVentanaLectoresVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelVentanaLectoresVisualizarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollVentanaLectoresVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addComponent(scrollVentanaLectoresVisualizar)
                 .addContainerGap())
         );
         panelVentanaLectoresVisualizarLayout.setVerticalGroup(
             panelVentanaLectoresVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelVentanaLectoresVisualizarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollVentanaLectoresVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                .addComponent(scrollVentanaLectoresVisualizar)
                 .addContainerGap())
         );
 
@@ -274,7 +302,7 @@ public class JFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        ventanaLectoresBaja.setSize(new java.awt.Dimension(400, 500));
+        ventanaLectoresBaja.setSize(new java.awt.Dimension(400, 200));
 
         panelVentanaLectoresBaja.setBorder(javax.swing.BorderFactory.createTitledBorder("Baja Lector"));
 
@@ -335,7 +363,7 @@ public class JFrame extends javax.swing.JFrame {
                     .addContainerGap()))
         );
 
-        ventanaLectoresModificar.setSize(new java.awt.Dimension(400, 500));
+        ventanaLectoresModificar.setSize(new java.awt.Dimension(400, 350));
         ventanaLectoresModificar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ventanaLectoresModificarMouseClicked(evt);
@@ -465,7 +493,7 @@ public class JFrame extends javax.swing.JFrame {
                     .addContainerGap()))
         );
 
-        ventanaLectoresBuscar.setSize(new java.awt.Dimension(400, 500));
+        ventanaLectoresBuscar.setSize(new java.awt.Dimension(700, 300));
 
         panelVentanaLectoresBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscar Lector"));
 
@@ -506,17 +534,17 @@ public class JFrame extends javax.swing.JFrame {
                     .addGroup(panelVentanaLectoresBuscarLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panelVentanaLectoresBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelLectoresBuscarId, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                            .addComponent(labelLectoresBuscarId, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
                             .addComponent(textFieldLectoresBuscarId)
-                            .addComponent(labelLectoresBuscarNif, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                            .addComponent(labelLectoresBuscarNif, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
                             .addComponent(textFieldLectoresBuscarNif)))
                     .addGroup(panelVentanaLectoresBuscarLayout.createSequentialGroup()
-                        .addGap(205, 205, 205)
+                        .addGap(274, 274, 274)
                         .addComponent(botonLectoresBuscarId)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(panelVentanaLectoresBuscarLayout.createSequentialGroup()
-                .addGap(207, 207, 207)
+                .addGap(275, 275, 275)
                 .addComponent(botonLectoresBuscarNif)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -559,7 +587,7 @@ public class JFrame extends javax.swing.JFrame {
                     .addContainerGap()))
         );
 
-        ventanaLibrosAlta.setSize(new java.awt.Dimension(500, 400));
+        ventanaLibrosAlta.setSize(new java.awt.Dimension(500, 300));
 
         panelVentanaLibrosAlta.setBorder(javax.swing.BorderFactory.createTitledBorder("Alta Libro"));
 
@@ -616,7 +644,7 @@ public class JFrame extends javax.swing.JFrame {
                     .addComponent(labelAltaLibroAñoPublicacion)
                     .addComponent(labelAltaLibroGenero)
                     .addComponent(labelAltaLibroPrestable))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addGroup(panelVentanaLibrosAltaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CheckBoxPrestable)
                     .addGroup(panelVentanaLibrosAltaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -626,9 +654,9 @@ public class JFrame extends javax.swing.JFrame {
                         .addComponent(textFieldAltaLibroTitulo)))
                 .addContainerGap())
             .addGroup(panelVentanaLibrosAltaLayout.createSequentialGroup()
-                .addGap(151, 151, 151)
+                .addGap(192, 192, 192)
                 .addComponent(ButtonAltaLibroAceptar)
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addContainerGap(205, Short.MAX_VALUE))
         );
         panelVentanaLibrosAltaLayout.setVerticalGroup(
             panelVentanaLibrosAltaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -679,7 +707,7 @@ public class JFrame extends javax.swing.JFrame {
                     .addContainerGap()))
         );
 
-        ventanaLibrosVisualizar.setSize(new java.awt.Dimension(400, 500));
+        ventanaLibrosVisualizar.setSize(new java.awt.Dimension(900, 500));
 
         panelVentanaLibrosVisualizar.setBorder(javax.swing.BorderFactory.createTitledBorder("Libros"));
 
@@ -721,7 +749,7 @@ public class JFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        ventanaLibrosModificar.setSize(new java.awt.Dimension(400, 500));
+        ventanaLibrosModificar.setSize(new java.awt.Dimension(500, 350));
         ventanaLibrosModificar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ventanaLibrosModificarMouseClicked(evt);
@@ -766,38 +794,38 @@ public class JFrame extends javax.swing.JFrame {
         panelVentanaLibrosModificarLayout.setHorizontalGroup(
             panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
-                                .addComponent(labelLibrosModificarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textFieldLibrosModificarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
-                                .addComponent(labelLibrosModificarAñoPublicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textFieldLibrosModificarGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
-                                .addComponent(labelLibrosModificarGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textFieldLibrosModificarAñoPublicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
-                                .addComponent(labelLibrosModificarPrestable, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(checkBoxLibrosModificarPrestable))
-                            .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
-                                .addGroup(panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelLibrosModificarTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelLectoresModificarTituloOriginal))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textFieldLibrosModificarTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                                    .addComponent(textFieldLibrosModificarTituloOriginal)))))
+                        .addComponent(labelLibrosModificarGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textFieldLibrosModificarAñoPublicacion))
                     .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(botonLibrosModificarAceptar)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                        .addComponent(labelLibrosModificarPrestable, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkBoxLibrosModificarPrestable)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
+                        .addComponent(labelLibrosModificarAñoPublicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textFieldLibrosModificarGenero))
+                    .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
+                        .addComponent(labelLibrosModificarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textFieldLibrosModificarAutor))
+                    .addGroup(panelVentanaLibrosModificarLayout.createSequentialGroup()
+                        .addGroup(panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelLibrosModificarTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelLectoresModificarTituloOriginal))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textFieldLibrosModificarTitulo)
+                            .addComponent(textFieldLibrosModificarTituloOriginal))))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVentanaLibrosModificarLayout.createSequentialGroup()
+                .addContainerGap(192, Short.MAX_VALUE)
+                .addComponent(botonLibrosModificarAceptar)
+                .addGap(164, 164, 164))
         );
         panelVentanaLibrosModificarLayout.setVerticalGroup(
             panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -826,8 +854,9 @@ public class JFrame extends javax.swing.JFrame {
                 .addGroup(panelVentanaLibrosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelLibrosModificarPrestable)
                     .addComponent(checkBoxLibrosModificarPrestable))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(botonLibrosModificarAceptar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addComponent(botonLibrosModificarAceptar)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout ventanaLibrosModificarLayout = new javax.swing.GroupLayout(ventanaLibrosModificar.getContentPane());
@@ -851,7 +880,7 @@ public class JFrame extends javax.swing.JFrame {
                     .addContainerGap()))
         );
 
-        ventanaLibrosBuscar.setSize(new java.awt.Dimension(400, 500));
+        ventanaLibrosBuscar.setSize(new java.awt.Dimension(600, 300));
 
         panelVentanaLibrosBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscar Libro"));
 
@@ -897,12 +926,12 @@ public class JFrame extends javax.swing.JFrame {
                             .addComponent(labelLibrosBuscarTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
                             .addComponent(textFieldLibrosBuscarTitulo)))
                     .addGroup(panelVentanaLibrosBuscarLayout.createSequentialGroup()
-                        .addGap(205, 205, 205)
+                        .addGap(217, 217, 217)
                         .addComponent(botonLibrosBuscarId)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(panelVentanaLibrosBuscarLayout.createSequentialGroup()
-                .addGap(207, 207, 207)
+                .addGap(216, 216, 216)
                 .addComponent(botonLibrosBuscarTitulo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -946,6 +975,226 @@ public class JFrame extends javax.swing.JFrame {
         );
 
         panelVentanaLibrosBuscar.getAccessibleContext().setAccessibleName("");
+
+        ventanaPrestamos.setSize(new java.awt.Dimension(400, 300));
+
+        panelVentanaPrestamos.setBorder(javax.swing.BorderFactory.createTitledBorder("Prestamos"));
+
+        labelVentanaPrestamosLector.setText("ID del Lector:");
+
+        labelVentanaPrestamosIdLibro.setText("ID del Libro:");
+
+        botonVentanaPrestamosAceptar.setText("Aceptar");
+        botonVentanaPrestamosAceptar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonVentanaPrestamosAceptarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelVentanaPrestamosLayout = new javax.swing.GroupLayout(panelVentanaPrestamos);
+        panelVentanaPrestamos.setLayout(panelVentanaPrestamosLayout);
+        panelVentanaPrestamosLayout.setHorizontalGroup(
+            panelVentanaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaPrestamosLayout.createSequentialGroup()
+                .addGroup(panelVentanaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelVentanaPrestamosLayout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addGroup(panelVentanaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panelVentanaPrestamosLayout.createSequentialGroup()
+                                .addComponent(labelVentanaPrestamosIdLibro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(textFieldPrestamosIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelVentanaPrestamosLayout.createSequentialGroup()
+                                .addComponent(labelVentanaPrestamosLector)
+                                .addGap(18, 18, 18)
+                                .addComponent(textFieldPrestamosIdLector, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(panelVentanaPrestamosLayout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(botonVentanaPrestamosAceptar)))
+                .addContainerGap(146, Short.MAX_VALUE))
+        );
+        panelVentanaPrestamosLayout.setVerticalGroup(
+            panelVentanaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaPrestamosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelVentanaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelVentanaPrestamosLector)
+                    .addComponent(textFieldPrestamosIdLector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelVentanaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelVentanaPrestamosIdLibro)
+                    .addComponent(textFieldPrestamosIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(botonVentanaPrestamosAceptar)
+                .addGap(35, 35, 35))
+        );
+
+        javax.swing.GroupLayout ventanaPrestamosLayout = new javax.swing.GroupLayout(ventanaPrestamos.getContentPane());
+        ventanaPrestamos.getContentPane().setLayout(ventanaPrestamosLayout);
+        ventanaPrestamosLayout.setHorizontalGroup(
+            ventanaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(ventanaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ventanaPrestamosLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelVentanaPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        ventanaPrestamosLayout.setVerticalGroup(
+            ventanaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 209, Short.MAX_VALUE)
+            .addGroup(ventanaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ventanaPrestamosLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelVentanaPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        ventanaDevoluciones.setSize(new java.awt.Dimension(400, 200));
+
+        panelVentanaDevoluciones.setBorder(javax.swing.BorderFactory.createTitledBorder("Devoluciones"));
+
+        labelVentanaDevolucionesIdLibro.setText("ID del Libro:");
+
+        botonVentanaDevolucionesAceptar.setText("Aceptar");
+        botonVentanaDevolucionesAceptar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonVentanaDevolucionesAceptarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelVentanaDevolucionesLayout = new javax.swing.GroupLayout(panelVentanaDevoluciones);
+        panelVentanaDevoluciones.setLayout(panelVentanaDevolucionesLayout);
+        panelVentanaDevolucionesLayout.setHorizontalGroup(
+            panelVentanaDevolucionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaDevolucionesLayout.createSequentialGroup()
+                .addGroup(panelVentanaDevolucionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelVentanaDevolucionesLayout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(labelVentanaDevolucionesIdLibro)
+                        .addGap(18, 18, 18)
+                        .addComponent(textFieldDevolucionesIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelVentanaDevolucionesLayout.createSequentialGroup()
+                        .addGap(135, 135, 135)
+                        .addComponent(botonVentanaDevolucionesAceptar)))
+                .addContainerGap(136, Short.MAX_VALUE))
+        );
+        panelVentanaDevolucionesLayout.setVerticalGroup(
+            panelVentanaDevolucionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaDevolucionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelVentanaDevolucionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelVentanaDevolucionesIdLibro)
+                    .addComponent(textFieldDevolucionesIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(botonVentanaDevolucionesAceptar)
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout ventanaDevolucionesLayout = new javax.swing.GroupLayout(ventanaDevoluciones.getContentPane());
+        ventanaDevoluciones.getContentPane().setLayout(ventanaDevolucionesLayout);
+        ventanaDevolucionesLayout.setHorizontalGroup(
+            ventanaDevolucionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(ventanaDevolucionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ventanaDevolucionesLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelVentanaDevoluciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        ventanaDevolucionesLayout.setVerticalGroup(
+            ventanaDevolucionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 209, Short.MAX_VALUE)
+            .addGroup(ventanaDevolucionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ventanaDevolucionesLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelVentanaDevoluciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        ventanaLibrosPrestados.setSize(new java.awt.Dimension(900, 500));
+
+        panelLibrosPrestados.setBorder(javax.swing.BorderFactory.createTitledBorder("Libros"));
+
+        textAreaLibrosPrestados.setColumns(20);
+        textAreaLibrosPrestados.setRows(5);
+        scrollLibrosPrestados.setViewportView(textAreaLibrosPrestados);
+
+        javax.swing.GroupLayout panelLibrosPrestadosLayout = new javax.swing.GroupLayout(panelLibrosPrestados);
+        panelLibrosPrestados.setLayout(panelLibrosPrestadosLayout);
+        panelLibrosPrestadosLayout.setHorizontalGroup(
+            panelLibrosPrestadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLibrosPrestadosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollLibrosPrestados, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelLibrosPrestadosLayout.setVerticalGroup(
+            panelLibrosPrestadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLibrosPrestadosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollLibrosPrestados, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout ventanaLibrosPrestadosLayout = new javax.swing.GroupLayout(ventanaLibrosPrestados.getContentPane());
+        ventanaLibrosPrestados.getContentPane().setLayout(ventanaLibrosPrestadosLayout);
+        ventanaLibrosPrestadosLayout.setHorizontalGroup(
+            ventanaLibrosPrestadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaLibrosPrestadosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelLibrosPrestados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        ventanaLibrosPrestadosLayout.setVerticalGroup(
+            ventanaLibrosPrestadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaLibrosPrestadosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelLibrosPrestados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        ventanaLectoresAlquiler.setSize(new java.awt.Dimension(900, 500));
+
+        panelLectoresAlquiler.setBorder(javax.swing.BorderFactory.createTitledBorder("Libros"));
+
+        textAreaLectoresAlquiler.setColumns(20);
+        textAreaLectoresAlquiler.setRows(5);
+        scrollLectoresAlquiler.setViewportView(textAreaLectoresAlquiler);
+
+        javax.swing.GroupLayout panelLectoresAlquilerLayout = new javax.swing.GroupLayout(panelLectoresAlquiler);
+        panelLectoresAlquiler.setLayout(panelLectoresAlquilerLayout);
+        panelLectoresAlquilerLayout.setHorizontalGroup(
+            panelLectoresAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLectoresAlquilerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollLectoresAlquiler, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelLectoresAlquilerLayout.setVerticalGroup(
+            panelLectoresAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLectoresAlquilerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollLectoresAlquiler, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout ventanaLectoresAlquilerLayout = new javax.swing.GroupLayout(ventanaLectoresAlquiler.getContentPane());
+        ventanaLectoresAlquiler.getContentPane().setLayout(ventanaLectoresAlquilerLayout);
+        ventanaLectoresAlquilerLayout.setHorizontalGroup(
+            ventanaLectoresAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaLectoresAlquilerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelLectoresAlquiler, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        ventanaLectoresAlquilerLayout.setVerticalGroup(
+            ventanaLectoresAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaLectoresAlquilerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelLectoresAlquiler, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1006,9 +1255,9 @@ public class JFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelLectoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lectoresAlta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lectoresBaja, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
-                    .addComponent(Modificar, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
-                    .addComponent(lectoresBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                    .addComponent(lectoresBaja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Modificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lectoresBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lectoresVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1086,8 +1335,8 @@ public class JFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelLibrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(librosAlta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(librosModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
-                    .addComponent(librosBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                    .addComponent(librosModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(librosBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(librosVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1107,10 +1356,17 @@ public class JFrame extends javax.swing.JFrame {
 
         panelUtilidades.setBorder(javax.swing.BorderFactory.createTitledBorder("Utilidades"));
 
-        utilidadesReset.setText("Reset");
-        utilidadesReset.addMouseListener(new java.awt.event.MouseAdapter() {
+        utilidadesResetLectores.setText("Reset Lectores");
+        utilidadesResetLectores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                utilidadesResetMouseClicked(evt);
+                utilidadesResetLectoresMouseClicked(evt);
+            }
+        });
+
+        utilidadesResetLibros.setText("Reset Libros");
+        utilidadesResetLibros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                utilidadesResetLibrosMouseClicked(evt);
             }
         });
 
@@ -1120,14 +1376,75 @@ public class JFrame extends javax.swing.JFrame {
             panelUtilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUtilidadesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(utilidadesReset, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                .addGroup(panelUtilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(utilidadesResetLectores, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                    .addComponent(utilidadesResetLibros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelUtilidadesLayout.setVerticalGroup(
             panelUtilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUtilidadesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(utilidadesReset)
+                .addComponent(utilidadesResetLectores)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(utilidadesResetLibros)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelPrestamos.setBorder(javax.swing.BorderFactory.createTitledBorder("Prestamos"));
+
+        botonPrestar.setText("Prestar");
+        botonPrestar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonPrestarMouseClicked(evt);
+            }
+        });
+
+        botonDevolver.setText("Devolver");
+        botonDevolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonDevolverMouseClicked(evt);
+            }
+        });
+
+        botonVerLibrosPrestados.setText("Libros prestados");
+        botonVerLibrosPrestados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonVerLibrosPrestadosMouseClicked(evt);
+            }
+        });
+
+        botonVerLectoresAlquiler.setText("Lectores con alquiler");
+        botonVerLectoresAlquiler.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonVerLectoresAlquilerMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelPrestamosLayout = new javax.swing.GroupLayout(panelPrestamos);
+        panelPrestamos.setLayout(panelPrestamosLayout);
+        panelPrestamosLayout.setHorizontalGroup(
+            panelPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPrestamosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonPrestar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonDevolver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonVerLibrosPrestados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonVerLectoresAlquiler, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        panelPrestamosLayout.setVerticalGroup(
+            panelPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPrestamosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(botonPrestar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonDevolver)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonVerLibrosPrestados)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonVerLectoresAlquiler)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1138,17 +1455,20 @@ public class JFrame extends javax.swing.JFrame {
             .addGroup(panelGeneralLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelLectores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addComponent(panelLibros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(panelPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(panelUtilidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(8, 8, 8))
         );
         panelGeneralLayout.setVerticalGroup(
             panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGeneralLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(panelPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelUtilidades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelLibros, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelLectores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1159,12 +1479,12 @@ public class JFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 552, Short.MAX_VALUE)
+            .addGap(0, 669, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                    .addComponent(panelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(25, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1177,21 +1497,27 @@ public class JFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void lectoresVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lectoresVisualizarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lectoresVisualizarActionPerformed
 
-    private void utilidadesResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_utilidadesResetMouseClicked
+    private void utilidadesResetLectoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_utilidadesResetLectoresMouseClicked
         
         logicaLectores.reset();
-        logicaLibros.reset();
         
-    }//GEN-LAST:event_utilidadesResetMouseClicked
+    }//GEN-LAST:event_utilidadesResetLectoresMouseClicked
 
     private void lectoresVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lectoresVisualizarMouseClicked
         
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = ventanaLectoresVisualizar.getSize().width;
+        int h = ventanaLectoresVisualizar.getSize().height;
+        int x = (dim.width-w)/2;
+        int y = (dim.height-h)/2;
+        ventanaLectoresVisualizar.setLocation(x, y);
         ventanaLectoresVisualizar.setVisible(true);
         textAreaLectoresVisualizar.setText(logicaLectores.visualizarLectores());
         
@@ -1206,6 +1532,12 @@ public class JFrame extends javax.swing.JFrame {
 
     private void lectoresAltaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lectoresAltaMouseClicked
         
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = ventanaLectoresAlta.getSize().width;
+        int h = ventanaLectoresAlta.getSize().height;
+        int x = (dim.width-w)/2;
+        int y = (dim.height-h)/2;
+        ventanaLectoresAlta.setLocation(x, y);
         ventanaLectoresAlta.setVisible(true);
         
     }//GEN-LAST:event_lectoresAltaMouseClicked
@@ -1219,6 +1551,12 @@ public class JFrame extends javax.swing.JFrame {
 
     private void lectoresBajaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lectoresBajaMouseClicked
         
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = ventanaLectoresBaja.getSize().width;
+        int h = ventanaLectoresBaja.getSize().height;
+        int x = (dim.width-w)/2;
+        int y = (dim.height-h)/2;
+        ventanaLectoresBaja.setLocation(x, y);
         ventanaLectoresBaja.setVisible(true);
         
     }//GEN-LAST:event_lectoresBajaMouseClicked
@@ -1232,18 +1570,36 @@ public class JFrame extends javax.swing.JFrame {
 
     private void librosAltaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_librosAltaMouseClicked
         
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = ventanaLibrosAlta.getSize().width;
+        int h = ventanaLibrosAlta.getSize().height;
+        int x = (dim.width-w)/2;
+        int y = (dim.height-h)/2;
+        ventanaLibrosAlta.setLocation(x, y);
         ventanaLibrosAlta.setVisible(true);
         
     }//GEN-LAST:event_librosAltaMouseClicked
 
     private void librosModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_librosModificarMouseClicked
         
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = ventanaLibrosModificar.getSize().width;
+        int h = ventanaLibrosModificar.getSize().height;
+        int x = (dim.width-w)/2;
+        int y = (dim.height-h)/2;
+        ventanaLibrosModificar.setLocation(x, y);
         ventanaLibrosModificar.setVisible(true);
         
     }//GEN-LAST:event_librosModificarMouseClicked
 
     private void librosVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_librosVisualizarMouseClicked
         
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = ventanaLibrosVisualizar.getSize().width;
+        int h = ventanaLibrosVisualizar.getSize().height;
+        int x = (dim.width-w)/2;
+        int y = (dim.height-h)/2;
+        ventanaLibrosVisualizar.setLocation(x, y);
         ventanaLibrosVisualizar.setVisible(true);
         textAreaLibrosVisualizar.setText(logicaLibros.visualizarLibros());
         
@@ -1279,6 +1635,12 @@ public class JFrame extends javax.swing.JFrame {
 
     private void lectoresBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lectoresBuscarMouseClicked
         
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = ventanaLectoresBuscar.getSize().width;
+        int h = ventanaLectoresBuscar.getSize().height;
+        int x = (dim.width-w)/2;
+        int y = (dim.height-h)/2;
+        ventanaLectoresBuscar.setLocation(x, y);
         ventanaLectoresBuscar.setVisible(true);
         
     }//GEN-LAST:event_lectoresBuscarMouseClicked
@@ -1310,6 +1672,12 @@ public class JFrame extends javax.swing.JFrame {
 
     private void ModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarMouseClicked
         
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = ventanaLectoresModificar.getSize().width;
+        int h = ventanaLectoresModificar.getSize().height;
+        int x = (dim.width-w)/2;
+        int y = (dim.height-h)/2;
+        ventanaLectoresModificar.setLocation(x, y);
         ventanaLectoresModificar.setVisible(true);
         
     }//GEN-LAST:event_ModificarMouseClicked
@@ -1377,9 +1745,87 @@ public class JFrame extends javax.swing.JFrame {
 
     private void librosBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_librosBuscarMouseClicked
         
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = ventanaLibrosBuscar.getSize().width;
+        int h = ventanaLibrosBuscar.getSize().height;
+        int x = (dim.width-w)/2;
+        int y = (dim.height-h)/2;
+        ventanaLibrosBuscar.setLocation(x, y);
         ventanaLibrosBuscar.setVisible(true);
         
     }//GEN-LAST:event_librosBuscarMouseClicked
+
+    private void utilidadesResetLibrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_utilidadesResetLibrosMouseClicked
+        
+        logicaLibros.reset();
+        
+    }//GEN-LAST:event_utilidadesResetLibrosMouseClicked
+
+    private void botonPrestarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonPrestarMouseClicked
+        
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = ventanaPrestamos.getSize().width;
+        int h = ventanaPrestamos.getSize().height;
+        int x = (dim.width-w)/2;
+        int y = (dim.height-h)/2;
+        ventanaPrestamos.setLocation(x, y);
+        ventanaPrestamos.setVisible(true);
+        
+    }//GEN-LAST:event_botonPrestarMouseClicked
+
+    private void botonVentanaPrestamosAceptarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonVentanaPrestamosAceptarMouseClicked
+        
+        logicaLibros.prestar(Integer.parseInt(textFieldPrestamosIdLector.getText()), Integer.parseInt(textFieldPrestamosIdLibro.getText()));
+        textFieldPrestamosIdLector.setText("");
+        textFieldPrestamosIdLibro.setText("");
+        ventanaPrestamos.setVisible(false);
+    }//GEN-LAST:event_botonVentanaPrestamosAceptarMouseClicked
+
+    private void botonDevolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonDevolverMouseClicked
+        
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = ventanaDevoluciones.getSize().width;
+        int h = ventanaDevoluciones.getSize().height;
+        int x = (dim.width-w)/2;
+        int y = (dim.height-h)/2;
+        ventanaDevoluciones.setLocation(x, y);
+        ventanaDevoluciones.setVisible(true);
+               
+    }//GEN-LAST:event_botonDevolverMouseClicked
+
+    private void botonVentanaDevolucionesAceptarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonVentanaDevolucionesAceptarMouseClicked
+        
+        logicaLibros.devolver(Integer.parseInt(textFieldDevolucionesIdLibro.getText()));
+        textFieldDevolucionesIdLibro.setText("");
+        ventanaDevoluciones.setVisible(false);
+                
+    }//GEN-LAST:event_botonVentanaDevolucionesAceptarMouseClicked
+
+    private void botonVerLibrosPrestadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonVerLibrosPrestadosMouseClicked
+        
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = ventanaLibrosPrestados.getSize().width;
+        int h = ventanaLibrosPrestados.getSize().height;
+        int x = (dim.width-w)/2;
+        int y = (dim.height-h)/2;
+        ventanaLibrosPrestados.setLocation(x, y);
+        ventanaLibrosPrestados.setVisible(true);
+        textAreaLibrosPrestados.setText(logicaLibros.verPrestamos());
+        
+    }//GEN-LAST:event_botonVerLibrosPrestadosMouseClicked
+
+    private void botonVerLectoresAlquilerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonVerLectoresAlquilerMouseClicked
+        
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = ventanaLectoresAlquiler.getSize().width;
+        int h = ventanaLectoresAlquiler.getSize().height;
+        int x = (dim.width-w)/2;
+        int y = (dim.height-h)/2;
+        ventanaLectoresAlquiler.setLocation(x, y);
+        ventanaLectoresAlquiler.setVisible(true);
+        textAreaLectoresAlquiler.setText(logicaLibros.verLectoresAlquiler());
+        
+    }//GEN-LAST:event_botonVerLectoresAlquilerMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1421,6 +1867,7 @@ public class JFrame extends javax.swing.JFrame {
     private javax.swing.JButton ButtonAltaLibroAceptar;
     private javax.swing.JCheckBox CheckBoxPrestable;
     private javax.swing.JButton Modificar;
+    private javax.swing.JButton botonDevolver;
     private javax.swing.JButton botonLectoresAltaAceptar;
     private javax.swing.JButton botonLectoresBajaAceptar;
     private javax.swing.JButton botonLectoresBuscarId;
@@ -1429,6 +1876,11 @@ public class JFrame extends javax.swing.JFrame {
     private javax.swing.JButton botonLibrosBuscarId;
     private javax.swing.JButton botonLibrosBuscarTitulo;
     private javax.swing.JButton botonLibrosModificarAceptar;
+    private javax.swing.JButton botonPrestar;
+    private javax.swing.JButton botonVentanaDevolucionesAceptar;
+    private javax.swing.JButton botonVentanaPrestamosAceptar;
+    private javax.swing.JButton botonVerLectoresAlquiler;
+    private javax.swing.JButton botonVerLibrosPrestados;
     private javax.swing.JCheckBox checkBoxLibrosModificarPrestable;
     private javax.swing.JLabel labelAltaLibroAñoPublicacion;
     private javax.swing.JLabel labelAltaLibroGenero;
@@ -1456,6 +1908,9 @@ public class JFrame extends javax.swing.JFrame {
     private javax.swing.JLabel labelLibrosModificarGenero;
     private javax.swing.JLabel labelLibrosModificarPrestable;
     private javax.swing.JLabel labelLibrosModificarTitulo;
+    private javax.swing.JLabel labelVentanaDevolucionesIdLibro;
+    private javax.swing.JLabel labelVentanaPrestamosIdLibro;
+    private javax.swing.JLabel labelVentanaPrestamosLector;
     private javax.swing.JButton lectoresAlta;
     private javax.swing.JButton lectoresBaja;
     private javax.swing.JButton lectoresBuscar;
@@ -1466,8 +1921,12 @@ public class JFrame extends javax.swing.JFrame {
     private javax.swing.JButton librosVisualizar;
     private javax.swing.JPanel panelGeneral;
     private javax.swing.JPanel panelLectores;
+    private javax.swing.JPanel panelLectoresAlquiler;
     private javax.swing.JPanel panelLibros;
+    private javax.swing.JPanel panelLibrosPrestados;
+    private javax.swing.JPanel panelPrestamos;
     private javax.swing.JPanel panelUtilidades;
+    private javax.swing.JPanel panelVentanaDevoluciones;
     private javax.swing.JPanel panelVentanaLectoresAlta;
     private javax.swing.JPanel panelVentanaLectoresBaja;
     private javax.swing.JPanel panelVentanaLectoresBuscar;
@@ -1477,14 +1936,20 @@ public class JFrame extends javax.swing.JFrame {
     private javax.swing.JPanel panelVentanaLibrosBuscar;
     private javax.swing.JPanel panelVentanaLibrosModificar;
     private javax.swing.JPanel panelVentanaLibrosVisualizar;
+    private javax.swing.JPanel panelVentanaPrestamos;
+    private javax.swing.JScrollPane scrollLectoresAlquiler;
+    private javax.swing.JScrollPane scrollLibrosPrestados;
     private javax.swing.JScrollPane scrollVentanaLectoresVisualizar;
     private javax.swing.JScrollPane scrollVentanaLibrosVisualizar;
+    private javax.swing.JTextArea textAreaLectoresAlquiler;
     private javax.swing.JTextArea textAreaLectoresVisualizar;
+    private javax.swing.JTextArea textAreaLibrosPrestados;
     private javax.swing.JTextArea textAreaLibrosVisualizar;
     private javax.swing.JTextField textFieldAltaLibroAutor;
     private javax.swing.JTextField textFieldAltaLibroAñoPublicacion;
     private javax.swing.JTextField textFieldAltaLibroGenero;
     private javax.swing.JTextField textFieldAltaLibroTitulo;
+    private javax.swing.JTextField textFieldDevolucionesIdLibro;
     private javax.swing.JTextField textFieldLectoresAltaApellidos;
     private javax.swing.JTextField textFieldLectoresAltaEmail;
     private javax.swing.JTextField textFieldLectoresAltaNif;
@@ -1506,7 +1971,12 @@ public class JFrame extends javax.swing.JFrame {
     private javax.swing.JTextField textFieldLibrosModificarGenero;
     private javax.swing.JTextField textFieldLibrosModificarTitulo;
     private javax.swing.JTextField textFieldLibrosModificarTituloOriginal;
-    private javax.swing.JButton utilidadesReset;
+    private javax.swing.JTextField textFieldPrestamosIdLector;
+    private javax.swing.JTextField textFieldPrestamosIdLibro;
+    private javax.swing.JButton utilidadesResetLectores;
+    private javax.swing.JButton utilidadesResetLibros;
+    private javax.swing.JFrame ventanaDevoluciones;
+    private javax.swing.JFrame ventanaLectoresAlquiler;
     private javax.swing.JFrame ventanaLectoresAlta;
     private javax.swing.JFrame ventanaLectoresBaja;
     private javax.swing.JFrame ventanaLectoresBuscar;
@@ -1515,6 +1985,8 @@ public class JFrame extends javax.swing.JFrame {
     private javax.swing.JFrame ventanaLibrosAlta;
     private javax.swing.JFrame ventanaLibrosBuscar;
     private javax.swing.JFrame ventanaLibrosModificar;
+    private javax.swing.JFrame ventanaLibrosPrestados;
     private javax.swing.JFrame ventanaLibrosVisualizar;
+    private javax.swing.JFrame ventanaPrestamos;
     // End of variables declaration//GEN-END:variables
 }

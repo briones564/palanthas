@@ -6,7 +6,7 @@
 package logicaNegocio;
 
 import accesoDatos.AccesoDatosLibros;
-import accesoDatos.accesoDatosLectores;
+import accesoDatos.AccesoDatosLectores;
 
 /**
  *
@@ -131,7 +131,7 @@ public class LogicaLibros {
              
             if (accesoDatosLibros.getLibros().get(i).getLector()!= 0) {
             
-                prestamos += accesoDatosLectores.getLectores().get(accesoDatosLibros.getLibros().get(i).getLector()-1).toString() + "\n";
+                prestamos += AccesoDatosLectores.getLectores().get(accesoDatosLibros.getLibros().get(i).getLector()-1).toString() + "\n";
             }
         }
         return prestamos;

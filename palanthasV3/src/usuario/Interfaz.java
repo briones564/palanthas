@@ -30,22 +30,36 @@ public class Interfaz {
         System.out.println("ID encontrado: " + logicaLectores.buscarID(7).toString());*/
         
         logicaLibros.reset();
-        /*System.out.print(logicaLibros.visualizarLibros());
+        System.out.print(logicaLibros.visualizarLibros());
         if(logicaLibros.altaLibro("Hodor","Hodor","Hodor","Hodorrrrrrrrrr",true)) System.out.println("ALTA");
         if(logicaLibros.altaLibro("Hodor2","Hodor2","Hodor2","Hodor2",true)) System.out.println("ALTA");
         if(logicaLibros.altaLibro("Hodor3","Hodor3","Hodor3","Hodor3",true)) System.out.println("ALTA");
         if(logicaLibros.modificarLibro("Rojo y negro", "Karl", "Karl","Karl","Karl",true)) System.out.println("MODIFICADO");
         System.out.print(logicaLibros.visualizarLibros());
         System.out.println("Titulo encontrado: " + logicaLibros.buscarTitulo("El niño 44").toString());      
-        System.out.println("ID encontrado: " + logicaLibros.buscarID(14).toString());*/
+        System.out.println("ID encontrado: " + logicaLibros.buscarID(14).toString());
         
-        logicaLibros.prestar(4, 2);
+        logicaLectores.reset();
+        logicaLibros.reset();
+        System.out.print(logicaLectores.visualizarLectores());
+        System.out.print(logicaLibros.visualizarLibros());
+        logicaLectores.reset();
+        logicaLibros.reset();
+        logicaLectores.reset();
+        logicaLibros.reset();
+        
+        if(logicaLibros.altaLibro("Hodor","Hodor","Hodor","Hodorrrrrrrrrr",true)) System.out.println("ALTA");
+        if(logicaLibros.altaLibro("Hodor2","Hodor2","Hodor2","Hodor2",true)) System.out.println("ALTA");
+        System.out.print(logicaLibros.visualizarLibros());
+        System.out.print(logicaLectores.visualizarLectores());
+        
+        /*logicaLibros.prestar(4, 2);
         logicaLibros.prestar(5, 6);
         logicaLibros.prestar(6, 4);
         System.out.print(logicaLibros.verPrestamos());
         logicaLibros.devolver(1);
         System.out.print(logicaLibros.visualizarLibros());
         System.out.print(logicaLibros.verPrestamos());
-        System.out.println(logicaLibros.verLectoresAlquiler());
+        System.out.println(logicaLibros.verLectoresAlquiler());*/
     }
 }

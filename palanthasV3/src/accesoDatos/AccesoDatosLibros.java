@@ -5,9 +5,9 @@
  */
 package accesoDatos;
 
-import static accesoDatos.accesoDatosLectores.borrarFichero;
-import static accesoDatos.accesoDatosLectores.file;
-import static accesoDatos.accesoDatosLectores.fileName;
+import static accesoDatos.AccesoDatosLectores.borrarFichero;
+import static accesoDatos.AccesoDatosLectores.file;
+import static accesoDatos.AccesoDatosLectores.fileName;
 import java.io.BufferedReader;
 import java.io.EOFException;
 import java.io.File;
@@ -53,7 +53,9 @@ public class AccesoDatosLibros {
         borrarFichero();
         
         try {
-
+            
+            nextId = 1;
+            id = 1;
             String string = "";
             bufferedReader = new BufferedReader(new FileReader("libros.txt"));
             
@@ -63,7 +65,11 @@ public class AccesoDatosLibros {
                 
                 
                 string = bufferedReader.readLine();  
-                if (string == null) break;//En este momento el lector ha de salir del bucle, pues ha encontrado "null".
+                if (string == null) {
+                    
+                    bufferedReader.close();
+                    break;
+                }//En este momento el lector ha de salir del bucle, pues ha encontrado "null".
                 randomAccessFile.writeInt(id++);
                 randomAccessFile.writeChars(Utilidades.ajustarString(string, 26)); 
                 randomAccessFile.writeChars(Utilidades.ajustarString(bufferedReader.readLine(), 30)); 
@@ -73,7 +79,6 @@ public class AccesoDatosLibros {
                 randomAccessFile.writeInt(0);
                 string = bufferedReader.readLine();
             } 
-            
         } catch (FileNotFoundException fileEx) {
         
             System.out.println(fileEx.getMessage());
@@ -372,22 +377,32 @@ public class AccesoDatosLibros {
     }
     
     public static void borrarFichero(){
+        
         File file = new File(fileName); 
         
         if (file.exists()) {
+            
             System.out.println("El fichero existe");
+            
             try {
+                
                 randomAccessFile.close();
+                
             } catch (IOException ex) {
+                
                 Logger.getLogger(AccesoDatosLibros.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (file.delete()) {
+                
                 System.out.println("Fichero borrado");
                 // Si el fichero ha sido borrado se debe volver a crear el objeto
                 // RandomAccessFile
                 try {
+                    
                     randomAccessFile = new RandomAccessFile(fileName, "rw");
+                    
                 } catch (FileNotFoundException ex) {
+                    
                     Logger.getLogger(AccesoDatosLibros.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }

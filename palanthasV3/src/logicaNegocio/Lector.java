@@ -173,10 +173,9 @@ public class Lector {
         return idLibroPrestado2;*/
 
     @Override
-    public String toString() {
-        return "Lector{" + "valido=" + valido + ", ID=" + ID + ", nombre=" + nombre + ", apellidos=" + apellidos + ", NIF=" + NIF + ", telefono=" + telefono + ", email=" + email + '}';
+     public String toString() {
+        return "·ID: " + ID + " | NOMBRE: " + nombre + " | APELLIDOS: " + apellidos + " | NIF: " + NIF + " | TELEFONO: " + telefono + " | EMAIL: " + email + " | VALIDO: " + valido + " |";
     }
-    
 
     
     

@@ -1,38 +1,38 @@
 package logicaNegocio;
 
-import accesoDatos.accesoDatosLectores;
+import accesoDatos.AccesoDatosLectores;
 /**
  *
  * @author dam08
  */
 public class LogicaLectores {          
 
-    public static accesoDatosLectores accesoDatos;
+    public static AccesoDatosLectores accesoDatosLectores;
     
     public LogicaLectores() {
     
-        accesoDatos = new accesoDatosLectores();
+        accesoDatosLectores = new AccesoDatosLectores();
     }
 
     public void reset () {
     
-        accesoDatos.reset();
+        accesoDatosLectores.reset();
     }
     
     public String visualizarLectores () {
         
         String lectores = "";
         
-        for (int i = 0; i < accesoDatos.getLectores().size(); i++){
+        for (int i = 0; i < accesoDatosLectores.getLectores().size(); i++){
             
-             lectores += accesoDatos.getLectores().get(i).toString() + "\n";
+             lectores += accesoDatosLectores.getLectores().get(i).toString() + "\n";
         }
         return lectores;
     }
     
     public boolean altaLector (String nombre, String apellidos, String nif, String telefono, String email) {
     
-        if (accesoDatos.altaLector(nombre, apellidos, nif, telefono, email)) {
+        if (accesoDatosLectores.altaLector(nombre, apellidos, nif, telefono, email)) {
             
             return true;
         }
@@ -41,11 +41,11 @@ public class LogicaLectores {
     
     public boolean bajaLector (int id) {
         
-        for (int i = 0; i < accesoDatos.getLectores().size(); i++){
+        for (int i = 0; i < accesoDatosLectores.getLectores().size(); i++){
              
-            if (accesoDatos.getLectores().get(i).getID()== id) {
+            if (accesoDatosLectores.getLectores().get(i).getID()== id) {
              
-                accesoDatos.bajaLector(id);
+                accesoDatosLectores.bajaLector(id);
                 return true;
             }
         }
@@ -54,7 +54,7 @@ public class LogicaLectores {
     
     public boolean modificarLector (String nombreOriginal, String nombreNuevo, String apellidos, String NIF, String telefono, String email) {
     
-        if (accesoDatos.modificarLector(nombreOriginal, nombreNuevo, apellidos, NIF, telefono,email)) {
+        if (accesoDatosLectores.modificarLector(nombreOriginal, nombreNuevo, apellidos, NIF, telefono,email)) {
             return true;
         }
         else return false;
@@ -62,11 +62,11 @@ public class LogicaLectores {
     
     public Lector buscarNIF(String nif) {
         
-        for (int i = 0; i < accesoDatos.getLectores().size(); i++){
+        for (int i = 0; i < accesoDatosLectores.getLectores().size(); i++){
              
-            if (accesoDatos.getLectores().get(i).getNIF().equalsIgnoreCase(nif)) {
+            if (accesoDatosLectores.getLectores().get(i).getNIF().equalsIgnoreCase(nif)) {
             
-                return accesoDatos.getLectores().get(i);
+                return accesoDatosLectores.getLectores().get(i);
             }
         }
         return null;
@@ -74,11 +74,11 @@ public class LogicaLectores {
     
     public Lector buscarID (int id) {
     
-        for (int i = 0; i < accesoDatos.getLectores().size(); i++){
+        for (int i = 0; i < accesoDatosLectores.getLectores().size(); i++){
              
-            if (accesoDatos.getLectores().get(i).getID()== id) {
+            if (accesoDatosLectores.getLectores().get(i).getID()== id) {
             
-                return accesoDatos.getLectores().get(i);
+                return accesoDatosLectores.getLectores().get(i);
             }
         }
         return null;
